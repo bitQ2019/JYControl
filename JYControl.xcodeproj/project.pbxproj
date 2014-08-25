@@ -15,13 +15,20 @@
 		0E47B67A19A39547002E48A8 /* JYEAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E47B67919A39547002E48A8 /* JYEAppDelegate.m */; };
 		0E47B67D19A39547002E48A8 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E47B67B19A39547002E48A8 /* Main_iPhone.storyboard */; };
 		0E47B68019A39547002E48A8 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E47B67E19A39547002E48A8 /* Main_iPad.storyboard */; };
-		0E47B68319A39547002E48A8 /* JYEViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E47B68219A39547002E48A8 /* JYEViewController.m */; };
+		0E47B68319A39547002E48A8 /* JYEMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E47B68219A39547002E48A8 /* JYEMainViewController.m */; };
 		0E47B68519A39547002E48A8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E47B68419A39547002E48A8 /* Images.xcassets */; };
 		0E47B68C19A39547002E48A8 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E47B68B19A39547002E48A8 /* XCTest.framework */; };
 		0E47B68D19A39547002E48A8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E47B66919A39547002E48A8 /* Foundation.framework */; };
 		0E47B68E19A39547002E48A8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E47B66D19A39547002E48A8 /* UIKit.framework */; };
 		0E47B69619A39547002E48A8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0E47B69419A39547002E48A8 /* InfoPlist.strings */; };
 		0E47B69819A39547002E48A8 /* JYControlTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E47B69719A39547002E48A8 /* JYControlTests.m */; };
+		0E47B6A619A399AC002E48A8 /* AsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E47B6A319A399AC002E48A8 /* AsyncSocket.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		0E47B6A719A399AC002E48A8 /* AsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E47B6A519A399AC002E48A8 /* AsyncUdpSocket.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		0E47B6A919A399C1002E48A8 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E47B6A819A399C1002E48A8 /* CFNetwork.framework */; };
+		0EAABE5519AA467600187017 /* JYESettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EAABE5419AA467600187017 /* JYESettingViewController.m */; };
+		0EAABE5819AA48DE00187017 /* JYEComFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EAABE5719AA48DE00187017 /* JYEComFirstViewController.m */; };
+		0EAABE5B19AA48F100187017 /* JYEComSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EAABE5A19AA48F100187017 /* JYEComSecondViewController.m */; };
+		0ECF4DFD19AAE670007B6549 /* JYECommandSender.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ECF4DFC19AAE670007B6549 /* JYECommandSender.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,14 +54,27 @@
 		0E47B67919A39547002E48A8 /* JYEAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JYEAppDelegate.m; sourceTree = "<group>"; };
 		0E47B67C19A39547002E48A8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
 		0E47B67F19A39547002E48A8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
-		0E47B68119A39547002E48A8 /* JYEViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JYEViewController.h; sourceTree = "<group>"; };
-		0E47B68219A39547002E48A8 /* JYEViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JYEViewController.m; sourceTree = "<group>"; };
+		0E47B68119A39547002E48A8 /* JYEMainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JYEMainViewController.h; sourceTree = "<group>"; };
+		0E47B68219A39547002E48A8 /* JYEMainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JYEMainViewController.m; sourceTree = "<group>"; };
 		0E47B68419A39547002E48A8 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		0E47B68A19A39547002E48A8 /* JYControlTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JYControlTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E47B68B19A39547002E48A8 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		0E47B69319A39547002E48A8 /* JYControlTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "JYControlTests-Info.plist"; sourceTree = "<group>"; };
 		0E47B69519A39547002E48A8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		0E47B69719A39547002E48A8 /* JYControlTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JYControlTests.m; sourceTree = "<group>"; };
+		0E47B6A219A399AC002E48A8 /* AsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AsyncSocket.h; path = AsyncSocket/AsyncSocket.h; sourceTree = "<group>"; };
+		0E47B6A319A399AC002E48A8 /* AsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AsyncSocket.m; path = AsyncSocket/AsyncSocket.m; sourceTree = "<group>"; };
+		0E47B6A419A399AC002E48A8 /* AsyncUdpSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AsyncUdpSocket.h; path = AsyncSocket/AsyncUdpSocket.h; sourceTree = "<group>"; };
+		0E47B6A519A399AC002E48A8 /* AsyncUdpSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AsyncUdpSocket.m; path = AsyncSocket/AsyncUdpSocket.m; sourceTree = "<group>"; };
+		0E47B6A819A399C1002E48A8 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		0EAABE5319AA467600187017 /* JYESettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JYESettingViewController.h; sourceTree = "<group>"; };
+		0EAABE5419AA467600187017 /* JYESettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JYESettingViewController.m; sourceTree = "<group>"; };
+		0EAABE5619AA48DE00187017 /* JYEComFirstViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JYEComFirstViewController.h; sourceTree = "<group>"; };
+		0EAABE5719AA48DE00187017 /* JYEComFirstViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JYEComFirstViewController.m; sourceTree = "<group>"; };
+		0EAABE5919AA48F100187017 /* JYEComSecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JYEComSecondViewController.h; sourceTree = "<group>"; };
+		0EAABE5A19AA48F100187017 /* JYEComSecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JYEComSecondViewController.m; sourceTree = "<group>"; };
+		0ECF4DFB19AAE670007B6549 /* JYECommandSender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JYECommandSender.h; sourceTree = "<group>"; };
+		0ECF4DFC19AAE670007B6549 /* JYECommandSender.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JYECommandSender.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E47B6A919A399C1002E48A8 /* CFNetwork.framework in Frameworks */,
 				0E47B66C19A39547002E48A8 /* CoreGraphics.framework in Frameworks */,
 				0E47B66E19A39547002E48A8 /* UIKit.framework in Frameworks */,
 				0E47B66A19A39547002E48A8 /* Foundation.framework in Frameworks */,
@@ -103,6 +124,7 @@
 		0E47B66819A39547002E48A8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0E47B6A819A399C1002E48A8 /* CFNetwork.framework */,
 				0E47B66919A39547002E48A8 /* Foundation.framework */,
 				0E47B66B19A39547002E48A8 /* CoreGraphics.framework */,
 				0E47B66D19A39547002E48A8 /* UIKit.framework */,
@@ -114,12 +136,21 @@
 		0E47B66F19A39547002E48A8 /* JYControl */ = {
 			isa = PBXGroup;
 			children = (
+				0E47B6A119A39972002E48A8 /* AsyncSocket */,
 				0E47B67819A39547002E48A8 /* JYEAppDelegate.h */,
 				0E47B67919A39547002E48A8 /* JYEAppDelegate.m */,
 				0E47B67B19A39547002E48A8 /* Main_iPhone.storyboard */,
 				0E47B67E19A39547002E48A8 /* Main_iPad.storyboard */,
-				0E47B68119A39547002E48A8 /* JYEViewController.h */,
-				0E47B68219A39547002E48A8 /* JYEViewController.m */,
+				0E47B68119A39547002E48A8 /* JYEMainViewController.h */,
+				0E47B68219A39547002E48A8 /* JYEMainViewController.m */,
+				0EAABE5319AA467600187017 /* JYESettingViewController.h */,
+				0EAABE5419AA467600187017 /* JYESettingViewController.m */,
+				0EAABE5619AA48DE00187017 /* JYEComFirstViewController.h */,
+				0ECF4DFB19AAE670007B6549 /* JYECommandSender.h */,
+				0ECF4DFC19AAE670007B6549 /* JYECommandSender.m */,
+				0EAABE5719AA48DE00187017 /* JYEComFirstViewController.m */,
+				0EAABE5919AA48F100187017 /* JYEComSecondViewController.h */,
+				0EAABE5A19AA48F100187017 /* JYEComSecondViewController.m */,
 				0E47B68419A39547002E48A8 /* Images.xcassets */,
 				0E47B67019A39547002E48A8 /* Supporting Files */,
 			);
@@ -153,6 +184,17 @@
 				0E47B69419A39547002E48A8 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		0E47B6A119A39972002E48A8 /* AsyncSocket */ = {
+			isa = PBXGroup;
+			children = (
+				0E47B6A219A399AC002E48A8 /* AsyncSocket.h */,
+				0E47B6A319A399AC002E48A8 /* AsyncSocket.m */,
+				0E47B6A419A399AC002E48A8 /* AsyncUdpSocket.h */,
+				0E47B6A519A399AC002E48A8 /* AsyncUdpSocket.m */,
+			);
+			name = AsyncSocket;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -255,8 +297,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				0E47B67619A39547002E48A8 /* main.m in Sources */,
+				0EAABE5B19AA48F100187017 /* JYEComSecondViewController.m in Sources */,
+				0E47B6A719A399AC002E48A8 /* AsyncUdpSocket.m in Sources */,
 				0E47B67A19A39547002E48A8 /* JYEAppDelegate.m in Sources */,
-				0E47B68319A39547002E48A8 /* JYEViewController.m in Sources */,
+				0EAABE5819AA48DE00187017 /* JYEComFirstViewController.m in Sources */,
+				0ECF4DFD19AAE670007B6549 /* JYECommandSender.m in Sources */,
+				0E47B68319A39547002E48A8 /* JYEMainViewController.m in Sources */,
+				0EAABE5519AA467600187017 /* JYESettingViewController.m in Sources */,
+				0E47B6A619A399AC002E48A8 /* AsyncSocket.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -471,6 +519,7 @@
 				0E47B69D19A39547002E48A8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0E47B69E19A39547002E48A8 /* Build configuration list for PBXNativeTarget "JYControlTests" */ = {
 			isa = XCConfigurationList;
@@ -479,6 +528,7 @@
 				0E47B6A019A39547002E48A8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
