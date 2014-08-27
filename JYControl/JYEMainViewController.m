@@ -19,21 +19,7 @@
     [super viewDidLoad];
     
     
-    AsyncSocket *asyncSocket = [[AsyncSocket alloc] initWithDelegate:self];
-    
-    NSError *err = nil;
-    NSString *hostString  = @"192.168.1.101";
-    NSData *host = [hostString dataUsingEncoding:NSUTF8StringEncoding];
-    int port = 3000;
-    
-    if(![asyncSocket connectToHost:hostString onPort:port error:&err])
-        
-    {
-        
-        NSLog(@"Error: %@", err);
-        
-    }
-	// Do any additional setup after loading the view, typically from a nib.
+   	// Do any additional setup after loading the view, typically from a nib.
 }
 
 - (void)didReceiveMemoryWarning
@@ -42,4 +28,22 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)buttonPressed:(UIButton *)sender {
+    NSString *segue = nil;
+    
+    if(sender.tag == 1)
+    {
+       segue = @"FirstSegue";
+    }
+    else if(sender.tag == 2)
+    {
+        segue = @"SecondSegue";
+    }
+    
+    if (segue) {
+        
+          [self performSegueWithIdentifier:segue sender:nil];
+    }
+   
+}
 @end

@@ -11,4 +11,11 @@
 @interface JYECommandSender : NSObject
 
 -(JYECommandSender *)shareSender;
+
+@property(nonatomic,assign,readonly)BOOL isConnected;
+
+-(BOOL)connectToServer:(NSString *)host port:(int)port;
+
+-(void)sendMessage:(NSString *)message;
+
 @end

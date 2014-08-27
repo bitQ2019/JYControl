@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface JYEMainViewController : UIViewController
+- (IBAction)buttonPressed:(id)sender;
 
 @end

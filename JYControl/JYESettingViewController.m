@@ -46,4 +46,15 @@
 }
 */
 
+- (IBAction)textFieldEndEdit:(UITextField *)sender {
+    
+    [sender resignFirstResponder];
+}
+
+- (IBAction)save:(id)sender {
+    
+    
+    
+    
+}
 @end
