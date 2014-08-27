@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0E01D7C219AC86D20034570A /* JYEUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E01D7C119AC86D20034570A /* JYEUtil.m */; };
+		0E01D7C519AD69A50034570A /* JYEDataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E01D7C419AD69A50034570A /* JYEDataStore.m */; };
 		0E47B66A19A39547002E48A8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E47B66919A39547002E48A8 /* Foundation.framework */; };
 		0E47B66C19A39547002E48A8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E47B66B19A39547002E48A8 /* CoreGraphics.framework */; };
 		0E47B66E19A39547002E48A8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E47B66D19A39547002E48A8 /* UIKit.framework */; };
@@ -45,6 +46,8 @@
 /* Begin PBXFileReference section */
 		0E01D7C019AC86D20034570A /* JYEUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JYEUtil.h; sourceTree = "<group>"; };
 		0E01D7C119AC86D20034570A /* JYEUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JYEUtil.m; sourceTree = "<group>"; };
+		0E01D7C319AD69A50034570A /* JYEDataStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JYEDataStore.h; sourceTree = "<group>"; };
+		0E01D7C419AD69A50034570A /* JYEDataStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JYEDataStore.m; sourceTree = "<group>"; };
 		0E47B66619A39547002E48A8 /* JYControl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JYControl.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E47B66919A39547002E48A8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		0E47B66B19A39547002E48A8 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -143,6 +146,8 @@
 				0E47B67819A39547002E48A8 /* JYEAppDelegate.h */,
 				0E47B67919A39547002E48A8 /* JYEAppDelegate.m */,
 				0E47B67B19A39547002E48A8 /* Main_iPhone.storyboard */,
+				0E01D7C319AD69A50034570A /* JYEDataStore.h */,
+				0E01D7C419AD69A50034570A /* JYEDataStore.m */,
 				0E47B67E19A39547002E48A8 /* Main_iPad.storyboard */,
 				0E47B68119A39547002E48A8 /* JYEMainViewController.h */,
 				0E47B68219A39547002E48A8 /* JYEMainViewController.m */,
@@ -305,6 +310,7 @@
 				0EAABE5B19AA48F100187017 /* JYEComSecondViewController.m in Sources */,
 				0E47B6A719A399AC002E48A8 /* AsyncUdpSocket.m in Sources */,
 				0E47B67A19A39547002E48A8 /* JYEAppDelegate.m in Sources */,
+				0E01D7C519AD69A50034570A /* JYEDataStore.m in Sources */,
 				0EAABE5819AA48DE00187017 /* JYEComFirstViewController.m in Sources */,
 				0ECF4DFD19AAE670007B6549 /* JYECommandSender.m in Sources */,
 				0E01D7C219AC86D20034570A /* JYEUtil.m in Sources */,

@@ -7,7 +7,7 @@
 //
 
 #define kHeadString @"SAT:"
-
+#define kFristTime @"isFirstTime"
 #import "JYEUtil.h"
 
 @implementation JYEUtil
@@ -37,6 +37,17 @@
 +(NSString *)addressCode
 {
     return @"";
+}
+
++(BOOL)isFirstTime
+{
+    NSNumber *isFirstTime  =
+    
+    [[NSUserDefaults standardUserDefaults] valueForKey:kFristTime];
+    
+    
+    
+    return [isFirstTime boolValue];
 }
 
 @end

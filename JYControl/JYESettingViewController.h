@@ -17,6 +17,7 @@
 @property (strong, nonatomic) IBOutlet UITextField *password;
 
 - (IBAction)textFieldEndEdit:(id)sender;
+- (IBAction)cancelKeyboard:(id)sender;
 
 - (IBAction)save:(id)sender;
 @end

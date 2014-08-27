@@ -18,5 +18,6 @@
 
 +(NSString *)addressCode;
 
++(BOOL)isFirstTime;
 
 @end

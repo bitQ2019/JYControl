@@ -10,7 +10,7 @@
 
 @interface JYECommandSender : NSObject
 
--(JYECommandSender *)shareSender;
++(JYECommandSender *)shareSender;
 
 @property(nonatomic,assign,readonly)BOOL isConnected;
 

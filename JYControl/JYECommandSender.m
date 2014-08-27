@@ -21,7 +21,7 @@
 
 @implementation JYECommandSender
 
--(JYECommandSender *)shareSender
++(JYECommandSender *)shareSender
 {
     static JYECommandSender *sender;
     static dispatch_once_t senderToken;
@@ -92,7 +92,7 @@
 
 - (void)onSocket:(AsyncSocket *)sock didConnectToHost:(NSString *)host port:(UInt16)port {
     NSLog(@"onSocket:%p didConnectToHost:%@ port:%hu",sock,host,port);
-    [sock readDataWithTimeout:1 tag:0];
+//    [sock readDataWithTimeout:1 tag:0];
 }
 - (void)onSocket:(AsyncSocket *)sock didWriteDataWithTag:(long)tag
 {

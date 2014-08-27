@@ -8,6 +8,8 @@
 
 #import "JYESettingViewController.h"
 
+
+
 @interface JYESettingViewController ()
 
 @end
@@ -51,10 +53,21 @@
     [sender resignFirstResponder];
 }
 
+- (IBAction)cancelKeyboard:(id)sender {
+}
+
 - (IBAction)save:(id)sender {
     
+    JYEDataStore *dataStore  =   [JYEDataStore shareInstance];
+    dataStore.serverCode = _addressCode.text;
+    dataStore.serverAddress = _address.text;
+    dataStore.passwordString = _password.text;
+    dataStore.ssidString = _SSID.text;
     
+    dataStore.serverPort = [NSNumber numberWithInteger:[_port.text integerValue]];
     
+    [dataStore save];
     
+    [[JYECommandSender shareSender] connectToServer:_address.text port:[_port.text integerValue]];
 }
 @end

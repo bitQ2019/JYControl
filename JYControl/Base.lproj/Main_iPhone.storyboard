@@ -390,7 +390,7 @@
                         <viewControllerLayoutGuide type="top" id="PFH-Rz-kSh"/>
                         <viewControllerLayoutGuide type="bottom" id="7mz-KE-ayg"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="SIC-3Y-HK3">
+                    <view key="view" contentMode="scaleToFill" id="SIC-3Y-HK3" customClass="UIControl">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
@@ -443,7 +443,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <action selector="textFieldEndEdit:" destination="ohj-Mm-Xri" eventType="editingDidEnd" id="dIm-pJ-OCq"/>
+                                    <action selector="textFieldEndEdit:" destination="ohj-Mm-Xri" eventType="editingDidEndOnExit" id="OHQ-aU-9T5"/>
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="8899" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OX8-ja-7EY">
@@ -452,7 +452,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <action selector="textFieldEndEdit:" destination="ohj-Mm-Xri" eventType="editingDidEnd" id="xxK-69-clu"/>
+                                    <action selector="textFieldEndEdit:" destination="ohj-Mm-Xri" eventType="editingDidEndOnExit" id="B43-lK-Y4W"/>
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="123456789" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XBv-ar-fXn">
@@ -461,7 +461,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <action selector="textFieldEndEdit:" destination="ohj-Mm-Xri" eventType="editingDidEnd" id="17Q-44-IQ0"/>
+                                    <action selector="textFieldEndEdit:" destination="ohj-Mm-Xri" eventType="editingDidEndOnExit" id="SQp-cE-XX6"/>
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Ab1981" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="F01-ZY-uNq">
@@ -470,7 +470,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <action selector="textFieldEndEdit:" destination="ohj-Mm-Xri" eventType="editingDidEnd" id="WFA-2I-jIM"/>
+                                    <action selector="textFieldEndEdit:" destination="ohj-Mm-Xri" eventType="editingDidEndOnExit" id="PeM-qZ-Xsn"/>
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="88888888" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="z4t-yM-6n6">
@@ -479,7 +479,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <action selector="textFieldEndEdit:" destination="ohj-Mm-Xri" eventType="editingDidEnd" id="TDX-eq-MJB"/>
+                                    <action selector="textFieldEndEdit:" destination="ohj-Mm-Xri" eventType="editingDidEndOnExit" id="RhX-tH-Ht1"/>
                                 </connections>
                             </textField>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TyM-6k-Vx5">
@@ -504,6 +504,9 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <connections>
+                            <action selector="cancelKeyboard:" destination="ohj-Mm-Xri" eventType="touchUpInside" id="7ua-pG-49j"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="SSID" destination="F01-ZY-uNq" id="MQw-Mf-FfC"/>
