@@ -77,6 +77,19 @@
 
 - (IBAction)textFieldEndEdit:(UITextField *)sender {
     
+    if (self.view.frame.origin.y < 0) {
+        
+        [UIView animateWithDuration:0.1f animations:^(){
+            
+            CGRect frame = self.view.frame;
+            frame.origin.y += 200.0f;
+            self.view.frame = frame;
+            
+        }];
+
+    }
+    
+    
     [sender resignFirstResponder];
     
 }
@@ -99,6 +112,18 @@
 - (IBAction)closeView:(id)sender {
     
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (IBAction)beginEdit:(id)sender {
+    
+    [UIView animateWithDuration:0.5f animations:^(){
+    
+        CGRect frame = self.view.frame;
+        frame.origin.y -= 200.0f;
+        self.view.frame = frame;
+        
+    }];
+    
 }
 
 - (IBAction)save:(id)sender {
