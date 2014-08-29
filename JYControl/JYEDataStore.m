@@ -89,6 +89,8 @@
      NSData *archiveData = [NSKeyedArchiver archivedDataWithRootObject:self];
     
     [[NSUserDefaults standardUserDefaults] setObject:archiveData forKey:kData];
+    
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 -(void)read
 {

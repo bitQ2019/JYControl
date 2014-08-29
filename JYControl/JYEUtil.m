@@ -39,15 +39,39 @@
     return @"";
 }
 
-+(BOOL)isFirstTime
-{
-    NSNumber *isFirstTime  =
++(BOOL) isFirstTimeLogin{
     
-    [[NSUserDefaults standardUserDefaults] valueForKey:kFristTime];
+    NSDictionary *option = @{@"firstTime": @"YES"};
+    [[NSUserDefaults standardUserDefaults] registerDefaults:option];
+    
+    NSString *isString = [[NSUserDefaults standardUserDefaults] valueForKey:@"firstTime"];
+    
+    if ([isString isEqualToString:@"YES"]) {
+        
+        return YES;
+        
+    }
+    else{
+        
+        return NO;
+    }
+    
+}
++(void)setFirstTimeLoginOver{
+    
+    [[NSUserDefaults standardUserDefaults] setValue:@"NO" forKey:@"firstTime"];
+    
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+
++(void)showAlertWithTitle:(NSString *)title message:(NSString *)message inViewWithButton:(NSString *)buttonName{
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:message delegate:nil cancelButtonTitle:buttonName otherButtonTitles: nil];
+    
+    [alert show];
     
     
-    
-    return [isFirstTime boolValue];
 }
 
 @end

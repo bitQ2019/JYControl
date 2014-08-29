@@ -18,6 +18,7 @@
 
 - (IBAction)textFieldEndEdit:(id)sender;
 - (IBAction)cancelKeyboard:(id)sender;
+- (IBAction)closeView:(id)sender;
 
 - (IBAction)save:(id)sender;
 @end

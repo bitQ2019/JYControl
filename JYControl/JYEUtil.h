@@ -18,6 +18,10 @@
 
 +(NSString *)addressCode;
 
-+(BOOL)isFirstTime;
++(BOOL) isFirstTimeLogin;
+
++(void)setFirstTimeLoginOver;
+
++(void)showAlertWithTitle:(NSString *)title message:(NSString *)message inViewWithButton:(NSString *)buttonName;
 
 @end

@@ -18,4 +18,6 @@
 
 -(void)sendMessage:(NSString *)message;
 
+-(BOOL)connectToDefaultServer;
+
 @end

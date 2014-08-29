@@ -12,4 +12,5 @@
 
 - (IBAction)buttonPressed:(id)sender;
 
+- (IBAction)closeView:(id)sender;
 @end

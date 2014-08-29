@@ -250,7 +250,11 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem id="w6u-Kg-Kz5">
-                                        <barButtonItem key="rightBarButtonItem" systemItem="stop" id="vsF-Uv-kCv"/>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="stop" id="vsF-Uv-kCv">
+                                            <connections>
+                                                <action selector="closeView:" destination="fSO-36-hnW" id="gR9-Eo-A3L"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -370,7 +374,11 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem id="j71-EU-lzQ">
-                                        <barButtonItem key="rightBarButtonItem" systemItem="stop" id="pgj-gE-CTY"/>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="stop" id="pgj-gE-CTY">
+                                            <connections>
+                                                <action selector="closeView:" destination="8aV-55-vx6" id="hbM-HH-d4v"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -488,7 +496,11 @@
                                 <items>
                                     <navigationItem title="WIFI" id="dxt-W2-UQW">
                                         <barButtonItem key="leftBarButtonItem" title="Set" id="CrZ-ta-yRX"/>
-                                        <barButtonItem key="rightBarButtonItem" systemItem="stop" id="xet-rS-xYU"/>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="stop" id="xet-rS-xYU">
+                                            <connections>
+                                                <action selector="closeView:" destination="ohj-Mm-Xri" id="epW-1F-zsY"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -505,7 +517,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <connections>
-                            <action selector="cancelKeyboard:" destination="ohj-Mm-Xri" eventType="touchUpInside" id="7ua-pG-49j"/>
+                            <action selector="cancelKeyboard:" destination="ohj-Mm-Xri" eventType="touchDown" id="73V-d6-EoX"/>
                         </connections>
                     </view>
                     <connections>

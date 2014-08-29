@@ -28,8 +28,35 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    if (![JYEUtil isFirstTimeLogin]) {
+        
+        [self initView];
+    }
+    
     // Do any additional setup after loading the view.
 }
+-(void)viewDidAppear:(BOOL)animated
+{
+    
+    if ([JYEUtil isFirstTimeLogin]) {
+        
+        [JYEUtil showAlertWithTitle:@"配置您的信息" message:@"完成后点击save" inViewWithButton:@"OK"];
+    }
+    
+}
+
+-(void)initView
+{
+    JYEDataStore *dataStore  =  [JYEDataStore shareInstance];
+    _address.text = dataStore.serverAddress;
+    _port.text = [dataStore.serverPort stringValue];
+    _addressCode.text = dataStore.serverCode;
+    _password.text = dataStore.passwordString;
+    _SSID.text = dataStore.ssidString;
+    
+}
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -51,9 +78,27 @@
 - (IBAction)textFieldEndEdit:(UITextField *)sender {
     
     [sender resignFirstResponder];
+    
 }
 
 - (IBAction)cancelKeyboard:(id)sender {
+    
+    for (UIView *subView in [self.view subviews]) {
+        
+        if ([subView isKindOfClass:[UITextField class]]) {
+            
+            UITextField *view = (UITextField *)subView;
+            
+            [view resignFirstResponder];
+            
+        }
+    }
+    
+}
+
+- (IBAction)closeView:(id)sender {
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (IBAction)save:(id)sender {
@@ -68,6 +113,11 @@
     
     [dataStore save];
     
-    [[JYECommandSender shareSender] connectToServer:_address.text port:[_port.text integerValue]];
+    
+    [JYEUtil setFirstTimeLoginOver];
+//    [[JYECommandSender shareSender] connectToServer:_address.text port:[_port.text integerValue]];
+    
+    
+    
 }
 @end

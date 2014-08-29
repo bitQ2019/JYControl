@@ -87,6 +87,16 @@
     
 }
 
+
+
+-(BOOL)connectToDefaultServer
+{
+ 
+    return [self connectToServer:[JYEDataStore shareInstance].serverAddress port:[[JYEDataStore shareInstance].serverPort integerValue]];
+}
+
+
+
 #pragma mark - delegate
 
 
