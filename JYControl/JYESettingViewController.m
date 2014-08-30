@@ -140,7 +140,16 @@
     
     
     [JYEUtil setFirstTimeLoginOver];
-//    [[JYECommandSender shareSender] connectToServer:_address.text port:[_port.text integerValue]];
+    if ([[JYECommandSender shareSender] connectToServer:_address.text port:[_port.text integerValue]]) {
+        
+        [[JYECommandSender shareSender] sendMessage:[JYEUtil formConnectMessage]];
+        
+    }
+    else
+    {
+        [JYEUtil showAlertWithTitle:@"错误" message:@"连接服务器失败" inViewWithButton:@"OK"];
+    }
+    
     
     
     

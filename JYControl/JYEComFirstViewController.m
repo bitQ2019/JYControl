@@ -48,7 +48,7 @@
 
 - (IBAction)buttonPressed:(UIButton *)sender {
     
-    
+    [JYEUtil formControlMessageWithButtonTag:sender.tag SendMessage:@"智能遥控"];
     
 }
 

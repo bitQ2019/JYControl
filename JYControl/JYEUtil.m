@@ -12,12 +12,13 @@
 
 @implementation JYEUtil
 
-+(NSString *)formConnectMessageWithButtonTag:(int)tag  SendMessage:(NSString *)input{
-    
++(NSString *)formConnectMessage{
+
     NSMutableString *outPut = [[NSMutableString alloc] initWithString:kHeadString];
     
-    [outPut appendString:[NSString stringWithFormat:@"%d-:%@-:%@-:CRL",tag,[JYEUtil addressCode],input]];
+    [outPut appendString:[NSString stringWithFormat:@"SET:PA%@-PB%@-PC%@-PD%@-PE%@-PF",[JYEDataStore shareInstance].serverAddress,[[JYEDataStore shareInstance].serverPort stringValue],[JYEDataStore shareInstance].serverCode,[JYEDataStore shareInstance].ssidString,[JYEDataStore shareInstance].passwordString]];
     
+    NSLog(@"%@",outPut);
     
     return outPut;
 }
@@ -34,10 +35,7 @@
     
 }
 
-+(NSString *)addressCode
-{
-    return @"";
-}
+
 
 +(BOOL) isFirstTimeLogin{
     

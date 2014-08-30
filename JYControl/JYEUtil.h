@@ -11,12 +11,12 @@
 @interface JYEUtil : NSObject
 
 // 连接
-+(NSString *)formConnectMessageWithButtonTag:(int)tag  SendMessage:(NSString *)input;
++(NSString *)formConnectMessage;
 
 
 +(NSString *)formControlMessageWithButtonTag:(int)tag  SendMessage:(NSString *)input;
 
-+(NSString *)addressCode;
+
 
 +(BOOL) isFirstTimeLogin;
 
