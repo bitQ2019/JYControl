@@ -13,4 +13,11 @@
 - (IBAction)buttonPressed:(id)sender;
 
 - (IBAction)closeView:(id)sender;
+
+@property (strong, nonatomic) IBOutlet UIButton *colorMinus;
+@property (strong, nonatomic) IBOutlet UIButton *colorPlus;
+@property (strong, nonatomic) IBOutlet UIButton *lightMinus;
+@property (strong, nonatomic) IBOutlet UIButton *lightPlus;
+@property (strong, nonatomic) IBOutlet UILongPressGestureRecognizer *longPressGesture;
+- (IBAction)longPressButton:(id)sender;
 @end

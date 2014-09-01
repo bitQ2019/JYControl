@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+//UIViewController * rootViewController;
+
 @interface JYEUtil : NSObject
 
 
@@ -25,5 +27,14 @@
 +(void)setFirstTimeLoginOver;
 
 +(void)showAlertWithTitle:(NSString *)title message:(NSString *)message inViewWithButton:(NSString *)buttonName;
+
+
++(void)showConnectServerSuccess;
+
++(void)alertConnectServerFail;
+
+
++(UIViewController *)getCurrentRootViewController;
+
 
 @end

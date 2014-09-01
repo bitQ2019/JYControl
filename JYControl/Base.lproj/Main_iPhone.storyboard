@@ -31,7 +31,6 @@
                                                 <segue destination="ohj-Mm-Xri" kind="modal" identifier="SettingSegue" modalTransitionStyle="coverVertical" id="1yO-Qf-0u4"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" systemItem="stop" id="Ag9-3A-8tc"/>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -96,11 +95,14 @@
                             <button opaque="NO" tag="5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iwb-qD-Nmi">
                                 <rect key="frame" x="98" y="275" width="36" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
                                 <state key="normal" title="light-">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="buttonPressed:" destination="fSO-36-hnW" eventType="touchUpInside" id="Y4e-O8-WFA"/>
+                                    <action selector="buttonPressed:" destination="fSO-36-hnW" eventType="touchDown" id="cz7-ci-AJq"/>
+                                    <action selector="buttonTouchCancel:" destination="fSO-36-hnW" eventType="touchUpInside" id="B9c-Au-xvD"/>
+                                    <outletCollection property="gestureRecognizers" destination="jRR-an-eLA" appends="YES" id="Mpl-6F-BGg"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="6" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vqe-KL-seN">
@@ -110,7 +112,9 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="buttonPressed:" destination="fSO-36-hnW" eventType="touchUpInside" id="Muu-p3-Nky"/>
+                                    <action selector="buttonPressed:" destination="fSO-36-hnW" eventType="touchDown" id="sRj-mX-vnP"/>
+                                    <action selector="buttonTouchCancel:" destination="fSO-36-hnW" eventType="touchUpInside" id="iN4-3U-PKx"/>
+                                    <outletCollection property="gestureRecognizers" destination="jRR-an-eLA" appends="YES" id="L7L-pC-IHY"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="8" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fd4-8X-ZI2">
@@ -120,7 +124,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="buttonPressed:" destination="fSO-36-hnW" eventType="touchUpInside" id="EfN-zr-J27"/>
+                                    <action selector="buttonPressed:" destination="fSO-36-hnW" eventType="touchDown" id="cEe-xL-2bs"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="9" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LTy-CS-3ec">
@@ -130,7 +134,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="buttonPressed:" destination="fSO-36-hnW" eventType="touchUpInside" id="zNg-J6-SiU"/>
+                                    <action selector="buttonPressed:" destination="fSO-36-hnW" eventType="touchDown" id="E0m-SB-AuU"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="10" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YnO-xT-M4Q">
@@ -140,7 +144,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="buttonPressed:" destination="fSO-36-hnW" eventType="touchUpInside" id="UCc-Zv-y2j"/>
+                                    <action selector="buttonPressed:" destination="fSO-36-hnW" eventType="touchDown" id="Lka-EA-iPS"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="11" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="noH-zO-7eZ">
@@ -150,7 +154,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="buttonPressed:" destination="fSO-36-hnW" eventType="touchUpInside" id="8wd-Cu-uaP"/>
+                                    <action selector="buttonPressed:" destination="fSO-36-hnW" eventType="touchDown" id="Plj-jC-bZ0"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="12" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="88d-U8-us3">
@@ -160,7 +164,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="buttonPressed:" destination="fSO-36-hnW" eventType="touchUpInside" id="R1e-GX-5Dc"/>
+                                    <action selector="buttonPressed:" destination="fSO-36-hnW" eventType="touchDown" id="sMX-WF-YIW"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="13" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jiB-hx-eYi">
@@ -170,7 +174,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="buttonPressed:" destination="fSO-36-hnW" eventType="touchUpInside" id="MmZ-8q-sNW"/>
+                                    <action selector="buttonPressed:" destination="fSO-36-hnW" eventType="touchDown" id="a74-GS-dAH"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="14" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BlS-n4-bc4">
@@ -180,7 +184,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="buttonPressed:" destination="fSO-36-hnW" eventType="touchUpInside" id="ByP-c9-UCG"/>
+                                    <action selector="buttonPressed:" destination="fSO-36-hnW" eventType="touchDown" id="SEt-df-2iw"/>
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Cp-r8-cDg">
@@ -202,7 +206,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="buttonPressed:" destination="fSO-36-hnW" eventType="touchUpInside" id="XJz-2n-p0D"/>
+                                    <action selector="buttonPressed:" destination="fSO-36-hnW" eventType="touchDown" id="fuH-dd-sPy"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="god-RM-knm">
@@ -212,7 +216,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="buttonPressed:" destination="fSO-36-hnW" eventType="touchUpInside" id="eVQ-0h-iNV"/>
+                                    <action selector="buttonPressed:" destination="fSO-36-hnW" eventType="touchDown" id="O0Y-0T-cJC"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SND-cM-id0">
@@ -222,7 +226,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="buttonPressed:" destination="fSO-36-hnW" eventType="touchUpInside" id="uiK-EC-EyF"/>
+                                    <action selector="buttonPressed:" destination="fSO-36-hnW" eventType="touchDown" id="gQw-6O-qlB"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WzR-pg-myA">
@@ -232,7 +236,9 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="buttonPressed:" destination="fSO-36-hnW" eventType="touchUpInside" id="SdY-T3-uwn"/>
+                                    <action selector="buttonPressed:" destination="fSO-36-hnW" eventType="touchDown" id="Ah0-Sa-Otz"/>
+                                    <action selector="buttonTouchCancel:" destination="fSO-36-hnW" eventType="touchUpInside" id="h3D-jV-61J"/>
+                                    <outletCollection property="gestureRecognizers" destination="jRR-an-eLA" appends="YES" id="3C6-ws-eMk"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tHx-wj-IdR">
@@ -242,7 +248,9 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="buttonPressed:" destination="fSO-36-hnW" eventType="touchUpInside" id="4u8-V6-LIA"/>
+                                    <action selector="buttonPressed:" destination="fSO-36-hnW" eventType="touchDown" id="my5-rh-sEl"/>
+                                    <action selector="buttonTouchCancel:" destination="fSO-36-hnW" eventType="touchUpInside" id="lDu-so-GV1"/>
+                                    <outletCollection property="gestureRecognizers" destination="jRR-an-eLA" appends="YES" id="kDP-VX-0Lt"/>
                                 </connections>
                             </button>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EHf-Bj-yTy">
@@ -261,8 +269,20 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="colorMinus" destination="WzR-pg-myA" id="VlY-4c-hjI"/>
+                        <outlet property="colorPlus" destination="tHx-wj-IdR" id="Ycb-Ja-g9m"/>
+                        <outlet property="lightMinus" destination="Iwb-qD-Nmi" id="DnV-B6-vSW"/>
+                        <outlet property="lightPlus" destination="vqe-KL-seN" id="sau-Su-Kl5"/>
+                        <outlet property="longPressGesture" destination="jRR-an-eLA" id="rjB-4Z-ZJJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SbV-XW-AEe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="jRR-an-eLA">
+                    <connections>
+                        <action selector="longPressButton:" destination="fSO-36-hnW" id="5d0-62-V0T"/>
+                    </connections>
+                </pongPressGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="710" y="967"/>
         </scene>
@@ -284,6 +304,9 @@
                                 <state key="normal" title="On">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="buttonPressed:" destination="8aV-55-vx6" eventType="touchDown" id="u1Q-59-wGB"/>
+                                </connections>
                             </button>
                             <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bHO-d7-SDL">
                                 <rect key="frame" x="219" y="92" width="30" height="30"/>
@@ -291,6 +314,9 @@
                                 <state key="normal" title="Off">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="buttonPressed:" destination="8aV-55-vx6" eventType="touchDown" id="U9R-HR-UHX"/>
+                                </connections>
                             </button>
                             <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DXE-P9-HeK">
                                 <rect key="frame" x="75" y="275" width="41" height="30"/>
@@ -298,6 +324,9 @@
                                 <state key="normal" title="Light-">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="buttonPressed:" destination="8aV-55-vx6" eventType="touchDown" id="yVd-7J-Zyo"/>
+                                </connections>
                             </button>
                             <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zvo-Hj-HPU">
                                 <rect key="frame" x="219" y="280" width="44" height="30"/>
@@ -305,6 +334,9 @@
                                 <state key="normal" title="Light+">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="buttonPressed:" destination="8aV-55-vx6" eventType="touchDown" id="Poi-AU-ymB"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bUD-1J-Hra">
                                 <rect key="frame" x="137" y="184" width="30" height="30"/>
@@ -312,6 +344,9 @@
                                 <state key="normal" title="Wifi">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="buttonPressed:" destination="8aV-55-vx6" eventType="touchDown" id="RFo-B0-N0T"/>
+                                </connections>
                             </button>
                             <button opaque="NO" tag="7" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HK8-6U-FFh">
                                 <rect key="frame" x="52" y="383" width="30" height="30"/>
@@ -319,6 +354,9 @@
                                 <state key="normal" title="1-">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="buttonPressed:" destination="8aV-55-vx6" eventType="touchDown" id="7lk-ln-YJJ"/>
+                                </connections>
                             </button>
                             <button opaque="NO" tag="8" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1zE-2V-sWI">
                                 <rect key="frame" x="52" y="427" width="30" height="30"/>
@@ -326,6 +364,9 @@
                                 <state key="normal" title="1+">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="buttonPressed:" destination="8aV-55-vx6" eventType="touchDown" id="qTH-mo-jlr"/>
+                                </connections>
                             </button>
                             <button opaque="NO" tag="9" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6DU-N4-s50">
                                 <rect key="frame" x="113" y="383" width="30" height="30"/>
@@ -333,6 +374,9 @@
                                 <state key="normal" title="2-">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="buttonPressed:" destination="8aV-55-vx6" eventType="touchDown" id="hmo-hv-bIy"/>
+                                </connections>
                             </button>
                             <button opaque="NO" tag="10" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x1f-kK-Rex">
                                 <rect key="frame" x="113" y="427" width="30" height="30"/>
@@ -340,6 +384,9 @@
                                 <state key="normal" title="2+">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="buttonPressed:" destination="8aV-55-vx6" eventType="touchDown" id="ee9-Fu-VMx"/>
+                                </connections>
                             </button>
                             <button opaque="NO" tag="11" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yeu-Zl-jw8">
                                 <rect key="frame" x="179" y="383" width="30" height="30"/>
@@ -347,6 +394,9 @@
                                 <state key="normal" title="3-">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="buttonPressed:" destination="8aV-55-vx6" eventType="touchDown" id="G0f-Ry-Xgg"/>
+                                </connections>
                             </button>
                             <button opaque="NO" tag="12" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bpW-O4-4ZR">
                                 <rect key="frame" x="179" y="427" width="30" height="30"/>
@@ -354,6 +404,9 @@
                                 <state key="normal" title="3+">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="buttonPressed:" destination="8aV-55-vx6" eventType="touchDown" id="lEA-Nx-dEY"/>
+                                </connections>
                             </button>
                             <button opaque="NO" tag="13" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Liz-Uu-4YP">
                                 <rect key="frame" x="246" y="383" width="30" height="30"/>
@@ -361,6 +414,9 @@
                                 <state key="normal" title="4-">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="buttonPressed:" destination="8aV-55-vx6" eventType="touchDown" id="PTu-kL-OYO"/>
+                                </connections>
                             </button>
                             <button opaque="NO" tag="14" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3fp-aa-AoF">
                                 <rect key="frame" x="246" y="427" width="30" height="30"/>
@@ -368,6 +424,9 @@
                                 <state key="normal" title="4+">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="buttonPressed:" destination="8aV-55-vx6" eventType="touchDown" id="ve4-ZO-aoB"/>
+                                </connections>
                             </button>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jPx-xc-IDW">
                                 <rect key="frame" x="0.0" y="20" width="320" height="44"/>

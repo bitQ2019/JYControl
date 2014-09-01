@@ -92,9 +92,9 @@
             UITextField *view = (UITextField *)subView;
             
 
-            [self cancelKeyboard:nil];
+            [self textFieldEndEdit:view];
             
-            [view resignFirstResponder];
+//            [view resignFirstResponder];
         }
     }
     
@@ -131,19 +131,10 @@
     
     [dataStore save];
     
+    [[JYECommandSender shareSender] disConnect];
     
-    [JYEUtil setFirstTimeLoginOver];
-    if ([[JYECommandSender shareSender] connectToServer:_address.text port:[_port.text intValue]]) {
-        
-        [[JYECommandSender shareSender] sendMessage:[JYEUtil formConnectMessage]];
-        
-        [JYEUtil showAlertWithTitle:@"" message:@"连接成功" inViewWithButton:@"OK"];
-    }
-    else
-    {
-        [JYEUtil showAlertWithTitle:@"错误" message:@"连接服务器失败" inViewWithButton:@"OK"];
-    }
     
+        
     
     
     

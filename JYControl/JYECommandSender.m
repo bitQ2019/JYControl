@@ -10,6 +10,9 @@
 
 #import "JYECommandSender.h"
 #import "AsyncSocket.h"
+#import "MBProgressHUD.h"
+#import "UIView+Extend.h"
+
 @interface JYECommandSender ()
 {
     AsyncSocket *_asyncSocket;
@@ -29,6 +32,8 @@
         
         sender = [[JYECommandSender alloc] init];
         
+        [NSTimer scheduledTimerWithTimeInterval:5 target:sender selector:@selector(testConnection) userInfo:nil repeats:YES];
+        
     });
     
     return sender;
@@ -40,6 +45,9 @@
         
         _asyncSocket = [[AsyncSocket alloc] initWithDelegate:self];
         _isConnected = false;
+        
+        
+  
     }
     
     return self;
@@ -69,6 +77,7 @@
         
     }
     
+    
    return  _isConnected = true;
 
     
@@ -87,7 +96,13 @@
 
 -(void)sendMessage:(NSString *)message
 {
-   [_asyncSocket writeData:[message dataUsingEncoding:NSUTF8StringEncoding] withTimeout:-1 tag:0];
+    
+    if (_isConnected) {
+        
+        [_asyncSocket writeData:[message dataUsingEncoding:NSUTF8StringEncoding] withTimeout:-1 tag:0];
+        
+    }
+   
     
 }
 
@@ -99,6 +114,16 @@
     return [self connectToServer:[JYEDataStore shareInstance].serverAddress port:[[JYEDataStore shareInstance].serverPort intValue]];
 }
 
+-(void)disConnect
+{
+    [_asyncSocket disconnect];
+    _isConnected = false;
+}
+
+-(void)testConnection
+{
+    [self sendMessage:@"heart_beat"];
+}
 
 
 #pragma mark - delegate
@@ -106,6 +131,11 @@
 
 - (void)onSocket:(AsyncSocket *)sock didConnectToHost:(NSString *)host port:(UInt16)port {
     NSLog(@"onSocket:%p didConnectToHost:%@ port:%hu",sock,host,port);
+    
+    [[JYECommandSender shareSender] sendMessage:[JYEUtil formConnectMessage]];
+    
+    [JYEUtil showConnectServerSuccess];
+
 //    [sock readDataWithTimeout:1 tag:0];
 }
 - (void)onSocket:(AsyncSocket *)sock didWriteDataWithTag:(long)tag
@@ -134,9 +164,17 @@
 
 - (void)onSocketDidDisconnect:(AsyncSocket *)sock
 {
+    
+//    [JYEUtil alertConnectServerFail];
     //断开连接了
     NSLog(@"onSocketDidDisconnect:%p", sock);
-
-    _asyncSocket = nil;
+    
+    UIViewController *controller = [JYEUtil getCurrentRootViewController];
+    
+    [controller.view showNotification:@"连接失败" WithStyle:hudStyleFailed];
+//    _asyncSocket = nil;
+    _isConnected = false;
+    
+    [self connectToDefaultServer];
 }
 @end

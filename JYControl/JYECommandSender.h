@@ -20,4 +20,6 @@
 
 -(BOOL)connectToDefaultServer;
 
+-(void)disConnect;
+
 @end

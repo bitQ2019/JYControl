@@ -10,6 +10,8 @@
 
 @interface JYEComSecondViewController : UIViewController
 
+
+- (IBAction)buttonPressed:(id)sender;
 - (IBAction)closeView:(id)sender;
 
 @end

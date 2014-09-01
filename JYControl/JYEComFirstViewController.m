@@ -9,7 +9,12 @@
 #import "JYEComFirstViewController.h"
 
 @interface JYEComFirstViewController ()
+{
+    NSUInteger _buttonTag;
+    NSTimer *_longPressEventTimer;
 
+}
+- (IBAction)buttonTouchCancel:(id)sender;
 @end
 
 @implementation JYEComFirstViewController
@@ -26,8 +31,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+   
+    _longPressGesture.minimumPressDuration = 1000;
+    
+   
+   
     // Do any additional setup after loading the view.
 }
+
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -52,11 +64,44 @@
     
    NSString * commendString = [JYEUtil formControlMessageWithButtonTag:sender.tag SendMessage:@"智能遥控"];
     
+     _buttonTag = sender.tag;
+    
     [[JYECommandSender shareSender] sendMessage:commendString];
+    
+
+    _longPressEventTimer = [NSTimer scheduledTimerWithTimeInterval:0.5f target:self selector:@selector(sendIntrevalCommend:) userInfo:nil repeats:YES];
+
     
 }
 
 - (IBAction)closeView:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+- (IBAction)longPressButton:(UIButton *)sender {
+    
+   
+    
+    NSLog(@"Button:%ld",(long)sender.tag);
+    
+    
+}
+-(void)sendIntrevalCommend:(id)sender
+{
+    
+    NSLog(@"long press function");
+    
+    [[JYECommandSender shareSender] sendMessage:[JYEUtil formControlMessageWithButtonTag:_buttonTag SendMessage:@"智能遥控"]];
+    
+}
+- (IBAction)buttonTouchCancel:(UIButton *)sender {
+    
+  
+        
+        [_longPressEventTimer invalidate];
+        _longPressEventTimer = nil;
+        
+    
+    
+    
 }
 @end

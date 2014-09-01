@@ -1,18 +1,18 @@
 //
-//  JYEComSecondViewController.m
+//  JYEViewController.m
 //  JYControl
 //
-//  Created by mq on 14-8-25.
+//  Created by mq on 14-9-1.
 //  Copyright (c) 2014年 mqq.com. All rights reserved.
 //
 
-#import "JYEComSecondViewController.h"
+#import "JYEViewController.h"
 
-@interface JYEComSecondViewController ()
+@interface JYEViewController ()
 
 @end
 
-@implementation JYEComSecondViewController
+@implementation JYEViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -23,6 +23,15 @@
     return self;
 }
 
+-(id)init
+{
+    if (self = [super init]) {
+        
+//        rootViewController = self;
+        
+    }
+    return self;
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -46,13 +55,4 @@
 }
 */
 
-- (IBAction)closeView:(id)sender {
-    
-    [self dismissViewControllerAnimated:YES completion:nil];
-    
-}
-
-- (IBAction)buttonPressed:(id)sender{
-    
-}
 @end
