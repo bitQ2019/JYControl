@@ -10,11 +10,13 @@
 
 @interface JYEUtil : NSObject
 
+
+
 // 连接
 +(NSString *)formConnectMessage;
 
 
-+(NSString *)formControlMessageWithButtonTag:(int)tag  SendMessage:(NSString *)input;
++(NSString *)formControlMessageWithButtonTag:(NSInteger)tag  SendMessage:(NSString *)input;
 
 
 

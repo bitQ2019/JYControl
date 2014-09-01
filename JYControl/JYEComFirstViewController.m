@@ -48,7 +48,11 @@
 
 - (IBAction)buttonPressed:(UIButton *)sender {
     
-    [JYEUtil formControlMessageWithButtonTag:sender.tag SendMessage:@"智能遥控"];
+    
+    
+   NSString * commendString = [JYEUtil formControlMessageWithButtonTag:sender.tag SendMessage:@"智能遥控"];
+    
+    [[JYECommandSender shareSender] sendMessage:commendString];
     
 }
 

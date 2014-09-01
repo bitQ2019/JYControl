@@ -7,7 +7,7 @@
 //
 
 #import "JYESettingViewController.h"
-
+#import "MBProgressHUD.h"
 
 
 @interface JYESettingViewController ()
@@ -29,26 +29,15 @@
 {
     [super viewDidLoad];
     
-    if (![JYEUtil isFirstTimeLogin]) {
-        
-        [self initView];
-    }
+    [self initView];
     
     // Do any additional setup after loading the view.
-}
--(void)viewDidAppear:(BOOL)animated
-{
-    
-    if ([JYEUtil isFirstTimeLogin]) {
-        
-        [JYEUtil showAlertWithTitle:@"配置您的信息" message:@"完成后点击save" inViewWithButton:@"OK"];
-    }
-    
 }
 
 -(void)initView
 {
     JYEDataStore *dataStore  =  [JYEDataStore shareInstance];
+    
     _address.text = dataStore.serverAddress;
     _port.text = [dataStore.serverPort stringValue];
     _addressCode.text = dataStore.serverCode;
@@ -102,8 +91,10 @@
             
             UITextField *view = (UITextField *)subView;
             
-            [view resignFirstResponder];
+
+            [self cancelKeyboard:nil];
             
+            [view resignFirstResponder];
         }
     }
     
@@ -128,6 +119,8 @@
 
 - (IBAction)save:(id)sender {
     
+    
+    
     JYEDataStore *dataStore  =   [JYEDataStore shareInstance];
     dataStore.serverCode = _addressCode.text;
     dataStore.serverAddress = _address.text;
@@ -140,10 +133,11 @@
     
     
     [JYEUtil setFirstTimeLoginOver];
-    if ([[JYECommandSender shareSender] connectToServer:_address.text port:[_port.text integerValue]]) {
+    if ([[JYECommandSender shareSender] connectToServer:_address.text port:[_port.text intValue]]) {
         
         [[JYECommandSender shareSender] sendMessage:[JYEUtil formConnectMessage]];
         
+        [JYEUtil showAlertWithTitle:@"" message:@"连接成功" inViewWithButton:@"OK"];
     }
     else
     {

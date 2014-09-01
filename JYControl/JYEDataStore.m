@@ -18,23 +18,49 @@
 #import "JYEDataStore.h"
 
 @implementation JYEDataStore
+static JYEDataStore * dataStore;
 
 +(JYEDataStore *)shareInstance
 {
-    static JYEDataStore * dataStore;
+  
     
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         dataStore = [[JYEDataStore alloc] init];
         
-        [dataStore read];
+        if ([JYEUtil isFirstTimeLogin]) {
+            
+            [dataStore save];
+            
+            [JYEUtil setFirstTimeLoginOver];
+        }
+        else
+        {
+            [dataStore read];
+        }
+        
+        
     });
+    
     
     return dataStore;
 }
 -(id)init
 {
     if (self = [super init]) {
+        
+        if ([JYEUtil isFirstTimeLogin]) {
+            
+            _serverAddress = @"192.168.1.10";
+            _serverPort = [NSNumber numberWithInteger:8899];
+            _serverCode = @"123456789";
+            _ssidString = @"Ab1981";
+            _passwordString = @"88888888";
+            _firstTitle = _secondTitle = @"智能控制";
+            
+//            [[JYEDataStore shareInstance] save];
+    
+        }
         
     }
     
@@ -94,11 +120,12 @@
 }
 -(void)read
 {
+    
     NSData *unarchiveData =
     
     [[NSUserDefaults standardUserDefaults] objectForKey:kData];
     
-    [NSKeyedUnarchiver  unarchiveObjectWithData:unarchiveData];
+     dataStore  = [NSKeyedUnarchiver  unarchiveObjectWithData:unarchiveData];
     
 }
 

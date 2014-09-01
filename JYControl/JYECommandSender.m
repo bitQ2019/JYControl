@@ -39,6 +39,7 @@
     if (self = [super init]) {
         
         _asyncSocket = [[AsyncSocket alloc] initWithDelegate:self];
+        _isConnected = false;
     }
     
     return self;
@@ -47,7 +48,10 @@
 
 -(BOOL)connectToServer:(NSString *)host port:(int)port;
 {
-    
+    if(_isConnected)
+    {
+        return _isConnected;
+    }
     
     _host = host;
     
@@ -92,7 +96,7 @@
 -(BOOL)connectToDefaultServer
 {
  
-    return [self connectToServer:[JYEDataStore shareInstance].serverAddress port:[[JYEDataStore shareInstance].serverPort integerValue]];
+    return [self connectToServer:[JYEDataStore shareInstance].serverAddress port:[[JYEDataStore shareInstance].serverPort intValue]];
 }
 
 
@@ -106,7 +110,7 @@
 }
 - (void)onSocket:(AsyncSocket *)sock didWriteDataWithTag:(long)tag
 {
-    [sock readDataWithTimeout: -1 tag: 0];
+//    [sock readDataWithTimeout: -1 tag: 0];
 }
 
 - (void)onSocket:(AsyncSocket *)sock didReadData:(NSData *)data withTag:(long)tag {
@@ -115,7 +119,7 @@
     
     NSLog(@"%@",aStr);
     
-    [sock readDataWithTimeout:-1 tag:0];
+//    [sock readDataWithTimeout:-1 tag:0];
 }
 
 - (void)onSocket:(AsyncSocket *)sock didSecure:(BOOL)flag

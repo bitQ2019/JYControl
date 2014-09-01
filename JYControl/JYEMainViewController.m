@@ -23,19 +23,7 @@
    	// Do any additional setup after loading the view, typically from a nib.
 }
 
--(void)viewDidAppear:(BOOL)animated
-{
-    if ([JYEUtil isFirstTimeLogin]) {
-        
-        [self performSegueWithIdentifier:@"SettingSegue" sender:nil];
-        
-    }
-    else
-    {
-        
-        
-    }
-}
+
 
 - (void)didReceiveMemoryWarning
 {

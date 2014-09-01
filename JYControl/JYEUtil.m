@@ -16,7 +16,7 @@
 
     NSMutableString *outPut = [[NSMutableString alloc] initWithString:kHeadString];
     
-    [outPut appendString:[NSString stringWithFormat:@"SET:PA%@-PB%@-PC%@-PD%@-PE%@-PF",[JYEDataStore shareInstance].serverAddress,[[JYEDataStore shareInstance].serverPort stringValue],[JYEDataStore shareInstance].serverCode,[JYEDataStore shareInstance].ssidString,[JYEDataStore shareInstance].passwordString]];
+    [outPut appendString:[NSString stringWithFormat:@"PA%@-PB%@-PC%@-PD%@-PE%@-PF",[JYEDataStore shareInstance].serverAddress,[[JYEDataStore shareInstance].serverPort stringValue],[JYEDataStore shareInstance].serverCode,[JYEDataStore shareInstance].ssidString,[JYEDataStore shareInstance].passwordString]];
     
     NSLog(@"%@",outPut);
     
@@ -24,13 +24,21 @@
 }
 
 
-+(NSString *)formControlMessageWithButtonTag:(int)tag  SendMessage:(NSString *)input{
++(NSString *)formControlMessageWithButtonTag:(NSInteger)tag  SendMessage:(NSString *)input{
     
-    NSMutableString *outPut = [[NSMutableString alloc] initWithString:kHeadString];
+      NSMutableString *outPut = [[NSMutableString alloc] initWithString:kHeadString];
     
-    [outPut appendString:[NSString stringWithFormat:@"%d-:%@-:%@-:CRL",tag,[JYEUtil addressCode],input]];
+    if (tag< 10) {
+      
+        
+        [outPut appendString:[NSString stringWithFormat:@"0%d-:%@-:%@-:CRL",tag,[JYEDataStore shareInstance].serverCode,input]];
+    }
+    else
+    {
     
+    [outPut appendString:[NSString stringWithFormat:@"%d-:%@-:%@-:CRL",tag,[JYEDataStore shareInstance].serverCode,input]];
     
+    }
     return outPut;
     
 }
