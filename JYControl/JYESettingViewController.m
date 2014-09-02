@@ -44,6 +44,15 @@
     _password.text = dataStore.passwordString;
     _SSID.text = dataStore.ssidString;
     
+//    if ([dataStore.serverAddress  isEqual: @"192.168.1.10"]&& [[dataStore.serverPort stringValue] isEqualToString:@"8899"]) {
+//        
+//        return;
+//    }
+//    
+//    [[JYECommandSender shareSender] disConnect];
+//
+//    [[JYECommandSender shareSender] connectToServer:@"192.168.1.10" port:8899];
+    
 }
 
 
@@ -133,8 +142,11 @@
     
     [[JYECommandSender shareSender] disConnect];
     
-    
+    [self dismissViewControllerAnimated:YES completion:^(){
+
         
+    }];
+    
     
     
     

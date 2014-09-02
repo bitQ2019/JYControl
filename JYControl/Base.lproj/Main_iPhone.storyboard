@@ -125,6 +125,7 @@
                                 </state>
                                 <connections>
                                     <action selector="buttonPressed:" destination="fSO-36-hnW" eventType="touchDown" id="cEe-xL-2bs"/>
+                                    <action selector="buttonTouchCancel:" destination="fSO-36-hnW" eventType="touchUpInside" id="hxz-VQ-d3b"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="9" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LTy-CS-3ec">
@@ -135,6 +136,7 @@
                                 </state>
                                 <connections>
                                     <action selector="buttonPressed:" destination="fSO-36-hnW" eventType="touchDown" id="E0m-SB-AuU"/>
+                                    <action selector="buttonTouchCancel:" destination="fSO-36-hnW" eventType="touchUpInside" id="tJ8-v0-kxo"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="10" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YnO-xT-M4Q">
@@ -145,6 +147,7 @@
                                 </state>
                                 <connections>
                                     <action selector="buttonPressed:" destination="fSO-36-hnW" eventType="touchDown" id="Lka-EA-iPS"/>
+                                    <action selector="buttonTouchCancel:" destination="fSO-36-hnW" eventType="touchUpInside" id="GcG-IA-2my"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="11" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="noH-zO-7eZ">
@@ -155,6 +158,7 @@
                                 </state>
                                 <connections>
                                     <action selector="buttonPressed:" destination="fSO-36-hnW" eventType="touchDown" id="Plj-jC-bZ0"/>
+                                    <action selector="buttonTouchCancel:" destination="fSO-36-hnW" eventType="touchUpInside" id="uVb-xH-1BZ"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="12" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="88d-U8-us3">
@@ -165,6 +169,7 @@
                                 </state>
                                 <connections>
                                     <action selector="buttonPressed:" destination="fSO-36-hnW" eventType="touchDown" id="sMX-WF-YIW"/>
+                                    <action selector="buttonTouchCancel:" destination="fSO-36-hnW" eventType="touchUpInside" id="Elg-2U-rWQ"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="13" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jiB-hx-eYi">
@@ -175,6 +180,7 @@
                                 </state>
                                 <connections>
                                     <action selector="buttonPressed:" destination="fSO-36-hnW" eventType="touchDown" id="a74-GS-dAH"/>
+                                    <action selector="buttonTouchCancel:" destination="fSO-36-hnW" eventType="touchUpInside" id="peo-uQ-tSD"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="14" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BlS-n4-bc4">
@@ -185,6 +191,7 @@
                                 </state>
                                 <connections>
                                     <action selector="buttonPressed:" destination="fSO-36-hnW" eventType="touchDown" id="SEt-df-2iw"/>
+                                    <action selector="buttonTouchCancel:" destination="fSO-36-hnW" eventType="touchUpInside" id="4YM-k2-Icu"/>
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Cp-r8-cDg">
@@ -207,6 +214,7 @@
                                 </state>
                                 <connections>
                                     <action selector="buttonPressed:" destination="fSO-36-hnW" eventType="touchDown" id="fuH-dd-sPy"/>
+                                    <action selector="buttonTouchCancel:" destination="fSO-36-hnW" eventType="touchUpInside" id="QJx-7I-VGS"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="god-RM-knm">
@@ -217,6 +225,7 @@
                                 </state>
                                 <connections>
                                     <action selector="buttonPressed:" destination="fSO-36-hnW" eventType="touchDown" id="O0Y-0T-cJC"/>
+                                    <action selector="buttonTouchCancel:" destination="fSO-36-hnW" eventType="touchUpInside" id="KNo-Sa-HbA"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SND-cM-id0">
@@ -227,6 +236,7 @@
                                 </state>
                                 <connections>
                                     <action selector="buttonPressed:" destination="fSO-36-hnW" eventType="touchDown" id="gQw-6O-qlB"/>
+                                    <action selector="buttonTouchCancel:" destination="fSO-36-hnW" eventType="touchUpInside" id="gDm-Kz-5lH"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WzR-pg-myA">
@@ -556,7 +566,6 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem title="WIFI" id="dxt-W2-UQW">
-                                        <barButtonItem key="leftBarButtonItem" title="Set" id="CrZ-ta-yRX"/>
                                         <barButtonItem key="rightBarButtonItem" systemItem="stop" id="xet-rS-xYU">
                                             <connections>
                                                 <action selector="closeView:" destination="ohj-Mm-Xri" id="epW-1F-zsY"/>

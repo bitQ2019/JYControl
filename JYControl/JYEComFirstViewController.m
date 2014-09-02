@@ -62,15 +62,19 @@
     
     
     
-   NSString * commendString = [JYEUtil formControlMessageWithButtonTag:sender.tag SendMessage:@"智能遥控"];
+   NSString * commendString = [JYEUtil formControlMessageWithButtonTag:sender.tag SendMessage:@""];
     
      _buttonTag = sender.tag;
     
     [[JYECommandSender shareSender] sendMessage:commendString];
     
+    if (sender.tag > 2 && sender.tag <7) {
+        
+        _longPressEventTimer = [NSTimer scheduledTimerWithTimeInterval:0.5f target:self selector:@selector(sendIntrevalCommend:) userInfo:nil repeats:YES];
 
-    _longPressEventTimer = [NSTimer scheduledTimerWithTimeInterval:0.5f target:self selector:@selector(sendIntrevalCommend:) userInfo:nil repeats:YES];
-
+        
+    }
+   
     
 }
 
@@ -90,7 +94,7 @@
     
     NSLog(@"long press function");
     
-    [[JYECommandSender shareSender] sendMessage:[JYEUtil formControlMessageWithButtonTag:_buttonTag SendMessage:@"智能遥控"]];
+    [[JYECommandSender shareSender] sendMessage:[JYEUtil formControlMessageWithButtonTag:_buttonTag SendMessage:@""]];
     
 }
 - (IBAction)buttonTouchCancel:(UIButton *)sender {
