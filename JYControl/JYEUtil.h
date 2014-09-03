@@ -9,6 +9,9 @@
 #import <Foundation/Foundation.h>
 
 //UIViewController * rootViewController;
+#define kDefaultServer @"192.168.1.10"
+#define kDefaultPort @"8899"
+
 
 @interface JYEUtil : NSObject
 
@@ -36,5 +39,5 @@
 
 +(UIViewController *)getCurrentRootViewController;
 
-
++(BOOL)isValidatIPAndPort:(NSString *)ipAddress serverPort:(NSString *)port;
 @end

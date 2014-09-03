@@ -142,4 +142,18 @@
     
 }
 
++(BOOL)isValidatIPAndPort:(NSString *)ipAddress serverPort:(NSString *)port{
+    
+    NSString  *urlRegEx =@"^([01]?\\d\\d?|2[0-4]\\d|25[0-5])\\."
+    "([01]?\\d\\d?|2[0-4]\\d|25[0-5])\\."
+    "([01]?\\d\\d?|2[0-4]\\d|25[0-5])\\."
+    "([01]?\\d\\d?|2[0-4]\\d|25[0-5])$"; //服务器IP地址匹配格式，本格式来自网络
+    
+    NSString  *portRegEx =@"^([1-9][0-9]{0,3}|[1-5][0-9]{4}|6[0-4][0-9]{3}|65[0-4][0-9]{2}|655[0-2][0-9]{1}|6553[0-5])$"; //服务器端口号匹配格式，本方式来自网络
+    
+    NSPredicate *urlTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", urlRegEx];
+    NSPredicate *portTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", portRegEx];
+    return [urlTest evaluateWithObject:ipAddress] && [portTest evaluateWithObject:port];
+}
+
 @end

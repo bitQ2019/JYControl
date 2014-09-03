@@ -8,7 +8,7 @@
 
 #import "JYESettingViewController.h"
 #import "MBProgressHUD.h"
-
+#import "UIView+Extend.h"
 
 @interface JYESettingViewController ()
 
@@ -49,7 +49,7 @@
 //        return;
 //    }
 //    
-//    [[JYECommandSender shareSender] disConnect];
+    [[JYECommandSender shareSender] disConnectWithType:1];
 //
 //    [[JYECommandSender shareSender] connectToServer:@"192.168.1.10" port:8899];
     
@@ -111,7 +111,10 @@
 
 - (IBAction)closeView:(id)sender {
     
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self dismissViewControllerAnimated:YES completion:^()
+     {
+         [[JYECommandSender shareSender] disConnectWithType:0];
+     }];
 }
 
 - (IBAction)beginEdit:(id)sender {
@@ -128,27 +131,52 @@
 
 - (IBAction)save:(id)sender {
     
-    
-    
     JYEDataStore *dataStore  =   [JYEDataStore shareInstance];
-    dataStore.serverCode = _addressCode.text;
-    dataStore.serverAddress = _address.text;
-    dataStore.passwordString = _password.text;
-    dataStore.ssidString = _SSID.text;
     
-    dataStore.serverPort = [NSNumber numberWithInteger:[_port.text integerValue]];
+    if (![JYEUtil isValidatIPAndPort:_address.text serverPort:_port.text]) {
+        
+        // 输入错误，连接到default;
+        [dataStore setDefaultValue];
+        
+     
+        
+    }
+    else
+    {
+        // 正确
+        dataStore.serverCode = _addressCode.text;
+        dataStore.serverAddress = _address.text;
+        dataStore.passwordString = _password.text;
+        dataStore.ssidString = _SSID.text;
+        
+        dataStore.serverPort = [NSNumber numberWithInteger:[_port.text integerValue]];
+        
+   
+    }
     
     [dataStore save];
     
-    [[JYECommandSender shareSender] disConnect];
     
-    [self dismissViewControllerAnimated:YES completion:^(){
-
-        
-    }];
+    [[JYECommandSender shareSender] sendMessage:[JYEUtil formConnectMessage]];
     
     
     
     
+    
+//    [self.view showNotification:@"发送成功" WithStyle:hudStyleSuccess];
+    
+    
+//    [UIView animateWithDuration:1 animations:^(){
+//    
+//        [self dismissViewControllerAnimated:YES completion:^(){
+//            
+//            
+//            
+//            [[JYECommandSender shareSender] disConnectWithType:0];
+//            
+//        }];
+//
+//    }];
+//
 }
 @end

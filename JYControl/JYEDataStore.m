@@ -51,12 +51,7 @@ static JYEDataStore * dataStore;
         
         if ([JYEUtil isFirstTimeLogin]) {
             
-            _serverAddress = @"192.168.1.10";
-            _serverPort = [NSNumber numberWithInteger:8899];
-            _serverCode = @"123456789";
-            _ssidString = @"Ab1981";
-            _passwordString = @"88888888";
-            _firstTitle = _secondTitle = @"智能控制";
+            [self setDefaultValue];
             
 //            [[JYEDataStore shareInstance] save];
     
@@ -65,6 +60,16 @@ static JYEDataStore * dataStore;
     }
     
     return self;
+}
+
+
+-(void)setDefaultValue{
+    _serverAddress = kDefaultServer;
+    _serverPort = [NSNumber numberWithInteger:8899];
+    _serverCode = @"123456789";
+    _ssidString = @"Ab1981";
+    _passwordString = @"88888888";
+    _firstTitle = _secondTitle = @"智能控制";
 }
 
 -(void)encodeWithCoder:(NSCoder *)aCoder

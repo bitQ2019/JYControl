@@ -18,8 +18,12 @@
 
 -(void)sendMessage:(NSString *)message;
 
+
+
 -(BOOL)connectToDefaultServer;
 
 -(void)disConnect;
+
+-(void)disConnectWithType:(int) type;
 
 @end

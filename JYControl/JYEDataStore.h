@@ -21,4 +21,6 @@
 @property (nonatomic,strong) NSString *secondTitle;
 
 -(void)save;
+
+-(void)setDefaultValue;
 @end

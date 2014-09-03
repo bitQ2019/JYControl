@@ -6,6 +6,9 @@
 //  Copyright (c) 2014年 mqq.com. All rights reserved.
 //
 
+//  add  state  isConnecting
+
+
 
 
 #import "JYECommandSender.h"
@@ -13,11 +16,15 @@
 #import "MBProgressHUD.h"
 #import "UIView+Extend.h"
 
+
+
 @interface JYECommandSender ()
 {
     AsyncSocket *_asyncSocket;
     NSString *_host;
     int _port;
+    int _connectType;
+    
 }
 @property(nonatomic,assign)BOOL isConnected;
 @end
@@ -46,6 +53,7 @@
         _asyncSocket = [[AsyncSocket alloc] initWithDelegate:self];
         _isConnected = false;
         
+        _connectType = 0;
         
   
     }
@@ -117,12 +125,34 @@
 -(void)disConnect
 {
     [_asyncSocket disconnect];
-    _isConnected = false;
+//    _isConnected = false;
 }
 
 -(void)testConnection
 {
-    [self sendMessage:@"heart_beat"];
+    if (_isConnected) {
+        
+        [self sendMessage:@"heart_beat"];
+        
+    }
+    else
+    {
+        [self disConnectWithType:_connectType];
+    }
+}
+
+
+-(void)disConnectWithType:(int)type
+{
+    _connectType = type;
+    
+    if ([[JYEDataStore shareInstance].serverAddress isEqualToString:kDefaultServer]&&[[[JYEDataStore shareInstance].serverPort stringValue] isEqualToString:kDefaultPort]) {
+        
+        return;
+        
+    }
+    
+    [self disConnect];
 }
 
 
@@ -132,7 +162,7 @@
 - (void)onSocket:(AsyncSocket *)sock didConnectToHost:(NSString *)host port:(UInt16)port {
     NSLog(@"onSocket:%p didConnectToHost:%@ port:%hu",sock,host,port);
     
-    [[JYECommandSender shareSender] sendMessage:[JYEUtil formConnectMessage]];
+
     
     [JYEUtil showConnectServerSuccess];
 
@@ -164,7 +194,16 @@
 
 - (void)onSocketDidDisconnect:(AsyncSocket *)sock
 {
+    if (_connectType == 1) {
+       
+        
+        _isConnected = false;
+        
+        [[JYECommandSender shareSender] connectToServer:kDefaultServer port:[kDefaultPort integerValue]];
+        return;
+    }
     
+    else{
 //    [JYEUtil alertConnectServerFail];
     //断开连接了
     NSLog(@"onSocketDidDisconnect:%p", sock);
@@ -175,6 +214,8 @@
 //    _asyncSocket = nil;
     _isConnected = false;
     
-    [self connectToDefaultServer];
+    [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(connectToDefaultServer) userInfo:nil repeats:NO];
+        
+    }
 }
 @end
