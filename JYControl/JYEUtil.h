@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 //UIViewController * rootViewController;
+#define kConnectNotificaton @"ConnectNotification"
 #define kDefaultServer @"192.168.1.10"
 #define kDefaultPort @"8899"
 
@@ -23,6 +24,7 @@
 
 +(NSString *)formControlMessageWithButtonTag:(NSInteger)tag  SendMessage:(NSString *)input;
 
++(NSString *)formControlMessageWithSliderValue:(NSInteger)value SendMessage:(NSString *)message Type:(NSInteger)type;
 
 
 +(BOOL) isFirstTimeLogin;

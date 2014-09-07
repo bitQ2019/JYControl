@@ -9,7 +9,7 @@
 #define kHeadString @"SAT:"
 #define kFristTime @"isFirstTime"
 #import "JYEUtil.h"
-
+#import "UIView+Extend.h"
 
 
 
@@ -85,12 +85,23 @@
 +(void)showConnectServerSuccess
 {
     [JYEUtil showAlertWithTitle:@"" message:@"连接成功" inViewWithButton:@"OK"];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:kConnectNotificaton object:nil userInfo:@{@"Connect":@1}];
+    
 }
 
 
 +(void)alertConnectServerFail
 {
+    
+    
+    UIViewController *controller = [JYEUtil getCurrentRootViewController];
+    
+    [controller.view showNotification:@"连接失败" WithStyle:hudStyleFailed];
+    
     [JYEUtil showAlertWithTitle:@"错误" message:@"连接服务器失败" inViewWithButton:@"OK"];
+    
+      [[NSNotificationCenter defaultCenter] postNotificationName:kConnectNotificaton object:nil userInfo:@{@"Connect":@0}];
 }
 
 
@@ -154,6 +165,26 @@
     NSPredicate *urlTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", urlRegEx];
     NSPredicate *portTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", portRegEx];
     return [urlTest evaluateWithObject:ipAddress] && [portTest evaluateWithObject:port];
+}
+
++(NSString *)formControlMessageWithSliderValue:(NSInteger)value SendMessage:(NSString *)message Type:(NSInteger)type
+{
+    NSMutableString *retMessage = [[NSMutableString alloc] init];
+    
+    if (type) {
+        
+        [retMessage appendString:@"SAF"];
+    }
+    else
+    {
+        [retMessage appendString:@"SAG"];
+    }
+    
+    [retMessage appendString:[NSString stringWithFormat:@":%d-:%@-:%@-:CRL",value,[JYEDataStore shareInstance].serverCode,message]];
+    
+    
+    return [retMessage copy];
+    
 }
 
 @end

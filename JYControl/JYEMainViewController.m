@@ -18,23 +18,25 @@
 {
     [super viewDidLoad];
     
-
     
-   	// Do any additional setup after loading the view, typically from a nib.
-}
-
--(void)viewDidAppear:(BOOL)animated
-{
     if ([[JYECommandSender shareSender] connectToDefaultServer]) {
         
-//           [[JYECommandSender shareSender] sendMessage:[JYEUtil formConnectMessage]];
+        //           [[JYECommandSender shareSender] sendMessage:[JYEUtil formConnectMessage]];
         
         
     }else
     {
         
     }
-  
+    
+
+
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveConnectNotification:) name:kConnectNotificaton object:nil];
+   	// Do any additional setup after loading the view, typically from a nib.
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
     
 }
 
@@ -61,5 +63,10 @@
           [self performSegueWithIdentifier:segue sender:nil];
     }
    
+}
+
+-(void)receiveConnectNotification:(NSNotification *)notification
+{
+    NSLog(@"%@,%@",NSStringFromClass([self class]),notification.userInfo);
 }
 @end

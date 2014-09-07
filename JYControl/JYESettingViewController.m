@@ -31,6 +31,9 @@
     
     [self initView];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveConnectNotification:) name:kConnectNotificaton object:nil];
+    
+    
     // Do any additional setup after loading the view.
 }
 
@@ -49,7 +52,7 @@
 //        return;
 //    }
 //    
-    [[JYECommandSender shareSender] disConnectWithType:1];
+    [[JYECommandSender shareSender] disConnectWithType:defaultServer];
 //
 //    [[JYECommandSender shareSender] connectToServer:@"192.168.1.10" port:8899];
     
@@ -113,20 +116,23 @@
     
     [self dismissViewControllerAnimated:YES completion:^()
      {
-         [[JYECommandSender shareSender] disConnectWithType:0];
+         [[JYECommandSender shareSender] disConnectWithType:customServer];
      }];
 }
 
 - (IBAction)beginEdit:(id)sender {
     
-    [UIView animateWithDuration:0.5f animations:^(){
-    
-        CGRect frame = self.view.frame;
-        frame.origin.y -= 200.0f;
-        self.view.frame = frame;
+    if (self.view.frame.origin.y == 0) {
         
-    }];
-    
+        [UIView animateWithDuration:0.5f animations:^(){
+            
+            CGRect frame = self.view.frame;
+            frame.origin.y -= 200.0f;
+            self.view.frame = frame;
+            
+        }];
+        
+    }
 }
 
 - (IBAction)save:(id)sender {
@@ -178,5 +184,10 @@
 //
 //    }];
 //
+}
+
+-(void)receiveConnectNotification:(NSNotification *)notification
+{
+    NSLog(@"%@,%@",NSStringFromClass([self class]),notification.userInfo);
 }
 @end

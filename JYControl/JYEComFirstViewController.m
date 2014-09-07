@@ -35,7 +35,7 @@
     _longPressGesture.minimumPressDuration = 1000;
     
    
-   
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveConnectNotification:) name:kConnectNotificaton object:nil];
     // Do any additional setup after loading the view.
 }
 
@@ -70,8 +70,13 @@
     
     if (sender.tag > 2 && sender.tag <7) {
         
+        if (!_longPressEventTimer) {
+        
         _longPressEventTimer = [NSTimer scheduledTimerWithTimeInterval:0.5f target:self selector:@selector(sendIntrevalCommend:) userInfo:nil repeats:YES];
+            
 
+        }
+       
         
     }
    
@@ -100,12 +105,27 @@
 - (IBAction)buttonTouchCancel:(UIButton *)sender {
     
   
-        
-        [_longPressEventTimer invalidate];
-        _longPressEventTimer = nil;
-        
-    
-    
+    [self stopTimer];
     
 }
+
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [self stopTimer];
+}
+
+
+-(void)stopTimer
+{
+    [_longPressEventTimer invalidate];
+    _longPressEventTimer = nil;
+
+}
+
+-(void)receiveConnectNotification:(NSNotification *)notification
+{
+     NSLog(@"%@,%@",NSStringFromClass([self class]),notification.userInfo);
+
+}
+
 @end

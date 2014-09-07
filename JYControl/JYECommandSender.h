@@ -1,29 +1,36 @@
-//
-//  JYECommandSender.h
-//  JYControl
-//
-//  Created by mq on 14-8-25.
-//  Copyright (c) 2014年 mqq.com. All rights reserved.
-//
 
 #import <Foundation/Foundation.h>
+
+typedef NS_ENUM(NSUInteger, ConnectStates) {
+    disConnected,
+    connecting,
+    connected
+};
+
+typedef NS_ENUM(NSUInteger, ConnectType) {
+    customServer,
+    defaultServer
+    
+};
+
+
 
 @interface JYECommandSender : NSObject
 
 +(JYECommandSender *)shareSender;
 
-@property(nonatomic,assign,readonly)BOOL isConnected;
+@property(nonatomic,assign,readonly)ConnectStates isConnected;
 
--(BOOL)connectToServer:(NSString *)host port:(int)port;
+-(ConnectStates)connectToServer:(NSString *)host port:(int)port;
 
 -(void)sendMessage:(NSString *)message;
 
 
 
--(BOOL)connectToDefaultServer;
+-(ConnectStates)connectToDefaultServer;
 
 -(void)disConnect;
 
--(void)disConnectWithType:(int) type;
+-(void)disConnectWithType:(ConnectType) type;
 
 @end

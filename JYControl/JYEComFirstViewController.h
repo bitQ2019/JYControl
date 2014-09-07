@@ -13,6 +13,7 @@
 - (IBAction)buttonPressed:(id)sender;
 
 - (IBAction)closeView:(id)sender;
+@property (strong, nonatomic) IBOutlet UILabel *wifiLable;
 
 @property (strong, nonatomic) IBOutlet UIButton *colorMinus;
 @property (strong, nonatomic) IBOutlet UIButton *colorPlus;

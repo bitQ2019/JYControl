@@ -14,4 +14,9 @@
 - (IBAction)buttonPressed:(id)sender;
 - (IBAction)closeView:(id)sender;
 
+- (IBAction)sendValueChangeCommand:(id)sender;
+
+@property (strong, nonatomic) IBOutlet UISlider *lightSlider;
+
+@property (strong, nonatomic) IBOutlet UISlider *colorSlider;
 @end

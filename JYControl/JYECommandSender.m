@@ -7,14 +7,12 @@
 //
 
 //  add  state  isConnecting
-
-
-
-
 #import "JYECommandSender.h"
 #import "AsyncSocket.h"
 #import "MBProgressHUD.h"
 #import "UIView+Extend.h"
+
+
 
 
 
@@ -23,10 +21,11 @@
     AsyncSocket *_asyncSocket;
     NSString *_host;
     int _port;
-    int _connectType;
+    ConnectType _connectType;
+    NSTimer *_timer;
     
 }
-@property(nonatomic,assign)BOOL isConnected;
+@property(nonatomic,assign)ConnectStates isConnected;
 @end
 
 @implementation JYECommandSender
@@ -39,7 +38,7 @@
         
         sender = [[JYECommandSender alloc] init];
         
-        [NSTimer scheduledTimerWithTimeInterval:5 target:sender selector:@selector(testConnection) userInfo:nil repeats:YES];
+        [NSTimer scheduledTimerWithTimeInterval:2 target:sender selector:@selector(testConnection) userInfo:nil repeats:YES];
         
     });
     
@@ -51,20 +50,21 @@
     if (self = [super init]) {
         
         _asyncSocket = [[AsyncSocket alloc] initWithDelegate:self];
-        _isConnected = false;
+        // 断开
+        _isConnected = disConnected;
         
-        _connectType = 0;
+        _connectType = customServer;
         
-  
+        
     }
     
     return self;
 }
 
 
--(BOOL)connectToServer:(NSString *)host port:(int)port;
+-(ConnectStates)connectToServer:(NSString *)host port:(int)port;
 {
-    if(_isConnected)
+    if(_isConnected != disConnected)
     {
         return _isConnected;
     }
@@ -74,29 +74,30 @@
     _port = port;
     
     NSError *error = nil;
+    
     if(![_asyncSocket connectToHost:_host onPort:_port error:&error])
         
     {
         
         NSLog(@"Error: %@", error);
         
-      return   _isConnected = false;
+        return   _isConnected = disConnected;
         
         
     }
     
     
-   return  _isConnected = true;
-
+    return  _isConnected = connecting;
+    
     
 }
 
--(BOOL)isConnected
+-(ConnectStates)isConnected
 {
     // 重连
-    if (!_isConnected) {
+    if (_isConnected ==disConnected) {
         
-       return  [self connectToServer:_host port:_port];
+        return  [self connectToDefaultServer];
     }
     
     return _isConnected;
@@ -105,72 +106,133 @@
 -(void)sendMessage:(NSString *)message
 {
     
-    if (_isConnected) {
+    if ([self isConnected] == connected) {
         
         [_asyncSocket writeData:[message dataUsingEncoding:NSUTF8StringEncoding] withTimeout:-1 tag:0];
         
     }
-   
+    
     
 }
 
 
 
--(BOOL)connectToDefaultServer
+-(ConnectStates)connectToDefaultServer
 {
- 
-    return [self connectToServer:[JYEDataStore shareInstance].serverAddress port:[[JYEDataStore shareInstance].serverPort intValue]];
+    if (  _connectType== customServer ) {
+        
+        return [self connectToServer:[JYEDataStore shareInstance].serverAddress port:[[JYEDataStore shareInstance].serverPort intValue]];
+
+        
+        
+    }
+    
+    return    [[JYECommandSender shareSender] connectToServer:kDefaultServer port:[kDefaultPort intValue]];
+
+    
 }
 
 -(void)disConnect
 {
-    [_asyncSocket disconnect];
-//    _isConnected = false;
+//    if (_isConnected == disConnected) {
+//        
+//        return;
+//    }
+ 
+        
+        [_asyncSocket disconnect];
+        
+    
+    
+    //    _isConnected = false;
 }
 
 -(void)testConnection
 {
-    if (_isConnected) {
+    
+    
+    
+    if (_isConnected == connecting) {
         
-        [self sendMessage:@"heart_beat"];
+
+    }
+    else if(_isConnected == connected)
+    {
         
+        [self checkConnectServer];
     }
     else
     {
-        [self disConnectWithType:_connectType];
+        [self connectToDefaultServer];
+        
     }
+    
 }
 
 
--(void)disConnectWithType:(int)type
+
+-(void)disConnectWithType:(ConnectType)type
 {
     _connectType = type;
     
-    if ([[JYEDataStore shareInstance].serverAddress isEqualToString:kDefaultServer]&&[[[JYEDataStore shareInstance].serverPort stringValue] isEqualToString:kDefaultPort]) {
-        
-        return;
-        
-    }
+//    if ([[JYEDataStore shareInstance].serverAddress isEqualToString:kDefaultServer]&&[[[JYEDataStore shareInstance].serverPort stringValue] isEqualToString:kDefaultPort]) {
+//        
+//        return;
+//        
+//    }
     
     [self disConnect];
 }
 
+-(void)checkConnectServer
+{
+    if (_connectType == customServer ) {
+        
+        if ([[_asyncSocket connectedHost] isEqualToString:[JYEDataStore shareInstance].serverAddress]&&[[JYEDataStore shareInstance].serverPort intValue]== [_asyncSocket connectedPort]) {
+            
+            [self sendMessage:@"heart_beat"];
+        }
+       // 正确
+        else
+        {
+            [self disConnect];
+        }
+     
+    }
+    else
+    {
+        if ([[_asyncSocket connectedHost] isEqualToString:kDefaultServer]&&[kDefaultPort intValue]== [_asyncSocket connectedPort]) {
+            
+            [self sendMessage:@"heart_beat"];
+            
+        }
+        else
+        {
+            [self disConnect];
+        }
+    }
+    
+}
 
 #pragma mark - delegate
 
 
 - (void)onSocket:(AsyncSocket *)sock didConnectToHost:(NSString *)host port:(UInt16)port {
+    
     NSLog(@"onSocket:%p didConnectToHost:%@ port:%hu",sock,host,port);
     
-
+    _timer = nil;
+    
+    _isConnected = connected;
     
     [JYEUtil showConnectServerSuccess];
-
-//    [sock readDataWithTimeout:1 tag:0];
+    
+    //    [sock readDataWithTimeout:1 tag:0];
 }
 - (void)onSocket:(AsyncSocket *)sock didWriteDataWithTag:(long)tag
 {
-//    [sock readDataWithTimeout: -1 tag: 0];
+    //    [sock readDataWithTimeout: -1 tag: 0];
+    
 }
 
 - (void)onSocket:(AsyncSocket *)sock didReadData:(NSData *)data withTag:(long)tag {
@@ -179,7 +241,7 @@
     
     NSLog(@"%@",aStr);
     
-//    [sock readDataWithTimeout:-1 tag:0];
+    //    [sock readDataWithTimeout:-1 tag:0];
 }
 
 - (void)onSocket:(AsyncSocket *)sock didSecure:(BOOL)flag
@@ -194,28 +256,15 @@
 
 - (void)onSocketDidDisconnect:(AsyncSocket *)sock
 {
-    if (_connectType == 1) {
-       
-        
-        _isConnected = false;
-        
-        [[JYECommandSender shareSender] connectToServer:kDefaultServer port:[kDefaultPort integerValue]];
-        return;
-    }
     
-    else{
-//    [JYEUtil alertConnectServerFail];
-    //断开连接了
-    NSLog(@"onSocketDidDisconnect:%p", sock);
+    _isConnected = disConnected;
     
-    UIViewController *controller = [JYEUtil getCurrentRootViewController];
+
+    [self connectToDefaultServer];
     
-    [controller.view showNotification:@"连接失败" WithStyle:hudStyleFailed];
-//    _asyncSocket = nil;
-    _isConnected = false;
     
-    [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(connectToDefaultServer) userInfo:nil repeats:NO];
-        
-    }
 }
 @end
+
+
+
