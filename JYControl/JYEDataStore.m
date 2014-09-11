@@ -64,12 +64,14 @@ static JYEDataStore * dataStore;
 
 
 -(void)setDefaultValue{
+    
     _serverAddress = kDefaultServer;
     _serverPort = [NSNumber numberWithInteger:8899];
     _serverCode = @"123456789";
     _ssidString = @"Ab1981";
     _passwordString = @"88888888";
     _firstTitle = _secondTitle = @"智能控制";
+    
 }
 
 -(void)encodeWithCoder:(NSCoder *)aCoder
