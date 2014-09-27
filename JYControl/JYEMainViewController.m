@@ -8,6 +8,7 @@
 
 #import "JYEMainViewController.h"
 #import "AsyncSocket.h"
+#import <QuartzCore/QuartzCore.h>
 @interface JYEMainViewController ()
 
 @end
@@ -29,7 +30,7 @@
         
     }
     
-
+//    self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"B-Background"]];
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveConnectNotification:) name:kConnectNotificaton object:nil];
    	// Do any additional setup after loading the view, typically from a nib.
@@ -49,11 +50,11 @@
 - (IBAction)buttonPressed:(UIButton *)sender {
     NSString *segue = nil;
     
-    if(sender.tag == 1)
+    if(sender.tag == 2)
     {
        segue = @"FirstSegue";
     }
-    else if(sender.tag == 2)
+    else if(sender.tag == 1)
     {
         segue = @"SecondSegue";
     }

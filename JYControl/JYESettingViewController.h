@@ -15,6 +15,7 @@
 @property (strong, nonatomic) IBOutlet UITextField *addressCode;
 @property (strong, nonatomic) IBOutlet UITextField *SSID;
 @property (strong, nonatomic) IBOutlet UITextField *password;
+@property (strong, nonatomic) IBOutlet UISegmentedControl *netSegmentedControl;
 
 - (IBAction)textFieldEndEdit:(id)sender;
 - (IBAction)cancelKeyboard:(id)sender;

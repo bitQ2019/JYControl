@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "JYESlider.h"
 @interface JYEComFirstViewController : UIViewController
 
 - (IBAction)buttonPressed:(id)sender;
@@ -18,7 +18,9 @@
 @property (strong, nonatomic) IBOutlet UIButton *colorMinus;
 @property (strong, nonatomic) IBOutlet UIButton *colorPlus;
 @property (strong, nonatomic) IBOutlet UIButton *lightMinus;
+@property (strong, nonatomic) IBOutlet JYESlider *lightSlider;
 @property (strong, nonatomic) IBOutlet UIButton *lightPlus;
+@property (strong, nonatomic) IBOutlet JYESlider *colorSlider;
 @property (strong, nonatomic) IBOutlet UILongPressGestureRecognizer *longPressGesture;
 - (IBAction)longPressButton:(id)sender;
 @end

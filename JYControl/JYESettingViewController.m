@@ -41,6 +41,7 @@
 {
     JYEDataStore *dataStore  =  [JYEDataStore shareInstance];
     
+    self.netSegmentedControl.selectedSegmentIndex = 0;
     _address.text = dataStore.serverAddress;
     _port.text = [dataStore.serverPort stringValue];
     _addressCode.text = dataStore.serverCode;

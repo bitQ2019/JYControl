@@ -34,7 +34,34 @@
    
     _longPressGesture.minimumPressDuration = 1000;
     
-   
+        CGAffineTransform trans = CGAffineTransformMakeRotation(M_PI * -0.5);
+    
+    [_lightSlider removeConstraints:_lightSlider.constraints];
+    
+    [_lightSlider setTranslatesAutoresizingMaskIntoConstraints:YES];
+    
+    _lightSlider.transform = trans;
+
+    
+    [_colorSlider removeConstraints:_colorSlider.constraints];
+    [_colorSlider setTranslatesAutoresizingMaskIntoConstraints:YES];
+    
+    _colorSlider.transform = trans;
+    
+//
+//    _colorSlider.transform = trans;
+//    
+//    UISlider *slider = [[UISlider alloc] initWithFrame:CGRectMake(self.view.frame.size.width/2, self.view.frame.size.height/2, 20, 200)];
+//    slider.backgroundColor = [UIColor redColor];
+//    
+//    [self.view addSubview:slider];
+//    
+//    [self.view bringSubviewToFront:slider];
+//    
+//    slider.transform = CGAffineTransformRotate(slider.transform, 0.5*M_PI);
+//    
+//    _lightSlider.transform = trans;
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveConnectNotification:) name:kConnectNotificaton object:nil];
     // Do any additional setup after loading the view.
 }

@@ -108,8 +108,8 @@
 
 -(void)saveSliderValue
 {
-    [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithInt:colorValue] forKey:@"ColorValue"];
-    [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithInt:lightValue] forKey:@"LightValue"];
+    [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithInteger:colorValue] forKey:@"ColorValue"];
+    [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithInteger:lightValue] forKey:@"LightValue"];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
@@ -121,7 +121,7 @@
         
         
         
-        NSString * message = [JYEUtil formControlMessageWithSliderValue:value SendMessage:@"" Type:0];
+        NSString * message = [JYEUtil formControlMessageWithSliderValue:value SendMessage:@"" Type:type];
         
         [[JYECommandSender shareSender] sendMessage:message];
         
