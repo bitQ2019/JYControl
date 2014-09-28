@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-UICircularSlider.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -17,12 +22,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>01EDCDE980D44EC6A7FA26F8</key>
+		<key>0C0C04AE063D40658F38341A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>0D05595A28FB435294609FDC</key>
+		<key>13F7FF9800DF4F148666F554</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>55D2DB3AFC5E4C78AA57A6EA</key>
 		<dict>
 			<key>primary</key>
 			<true/>

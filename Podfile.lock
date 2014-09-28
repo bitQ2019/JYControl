@@ -1,10 +1,13 @@
 PODS:
   - MBProgressHUD (0.9)
+  - UICircularSlider (1.0.3)
 
 DEPENDENCIES:
   - MBProgressHUD (~> 0.8)
+  - UICircularSlider (~> 1.0.3)
 
 SPEC CHECKSUMS:
   MBProgressHUD: 2038dbcf3dce73215abed6001657043d53aa79a8
+  UICircularSlider: 516db580ae6b09496dbb4558eeab6f3a9f0c8e7b
 
 COCOAPODS: 0.33.1
