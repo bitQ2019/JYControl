@@ -55,7 +55,7 @@
                                     <action selector="buttonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="R28-Lk-o0L"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Wifi-A" translatesAutoresizingMaskIntoConstraints="NO" id="54W-Yf-tGO">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="diswifi" highlightedImage="Wifi-A" translatesAutoresizingMaskIntoConstraints="NO" id="54W-Yf-tGO">
                                 <rect key="frame" x="26" y="21" width="90" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -79,6 +79,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="wifi" destination="54W-Yf-tGO" id="hwV-v9-o4L"/>
                         <segue destination="fSO-36-hnW" kind="modal" identifier="FirstSegue" id="RMj-Qk-v8a"/>
                         <segue destination="8aV-55-vx6" kind="modal" identifier="SecondSegue" id="66f-UU-UtO"/>
                     </connections>
@@ -235,7 +236,7 @@
                                     <action selector="buttonTouchCancel:" destination="fSO-36-hnW" eventType="touchUpInside" id="gDm-Kz-5lH"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Wifi-A" translatesAutoresizingMaskIntoConstraints="NO" id="Ujr-F7-Soh">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="diswifi" highlightedImage="Wifi-A" translatesAutoresizingMaskIntoConstraints="NO" id="Ujr-F7-Soh">
                                 <rect key="frame" x="20" y="20" width="90" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -298,6 +299,7 @@
                         <outlet property="circleSlider" destination="CcD-KL-axO" id="wxz-sU-Ir5"/>
                         <outlet property="colorSlider" destination="tUD-QV-B31" id="BPu-oa-bIF"/>
                         <outlet property="lightSlider" destination="ln0-bj-SVT" id="Slk-wF-d37"/>
+                        <outlet property="wifi" destination="Ujr-F7-Soh" id="CYf-oX-bdM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SbV-XW-AEe" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -430,7 +432,7 @@
                                     <action selector="closeView:" destination="8aV-55-vx6" eventType="touchUpInside" id="1pX-U7-g5E"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Wifi-A" translatesAutoresizingMaskIntoConstraints="NO" id="l8k-4I-T3H">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="diswifi" highlightedImage="Wifi-A" translatesAutoresizingMaskIntoConstraints="NO" id="l8k-4I-T3H">
                                 <rect key="frame" x="20" y="20" width="90" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -518,6 +520,7 @@
                     <connections>
                         <outlet property="colorSlider" destination="Zmg-mY-zb6" id="DaJ-sp-91y"/>
                         <outlet property="lightSlider" destination="cOp-lP-xwa" id="drq-hR-aNZ"/>
+                        <outlet property="wifi" destination="l8k-4I-T3H" id="UHR-yW-XMG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tq0-6e-xqV" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -544,7 +547,7 @@
                                 <rect key="frame" x="37" y="94" width="256" height="185"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <segmentedControl opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="one-kK-a0W">
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="one-kK-a0W">
                                         <rect key="frame" x="107" y="106" width="131" height="29"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -553,6 +556,9 @@
                                             <segment title="Extranet"/>
                                         </segments>
                                         <color key="tintColor" red="0.841796875" green="0.1042623584" blue="0.1285670082" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="tabValueChanged:" destination="ohj-Mm-Xri" eventType="valueChanged" id="f5u-D1-awT"/>
+                                        </connections>
                                     </segmentedControl>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -678,7 +684,7 @@
                                     <action selector="save:" destination="ohj-Mm-Xri" eventType="touchUpInside" id="3Kk-L1-c5m"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Wifi-A" translatesAutoresizingMaskIntoConstraints="NO" id="do4-mc-9Uj">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="diswifi" highlightedImage="Wifi-A" translatesAutoresizingMaskIntoConstraints="NO" id="do4-mc-9Uj">
                                 <rect key="frame" x="20" y="20" width="90" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -713,6 +719,7 @@
                         <outlet property="netSegmentedControl" destination="one-kK-a0W" id="4OO-kz-lZX"/>
                         <outlet property="password" destination="z4t-yM-6n6" id="eWx-s9-pJf"/>
                         <outlet property="port" destination="OX8-ja-7EY" id="ZRJ-Ki-XUE"/>
+                        <outlet property="wifi" destination="do4-mc-9Uj" id="kPl-6L-DZz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lhO-gi-dY1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -734,6 +741,7 @@
         <image name="SwitcherOff-A" width="147" height="58"/>
         <image name="SwitcherOn-A" width="140" height="58"/>
         <image name="Wifi-A" width="130" height="56"/>
+        <image name="diswifi" width="132" height="56"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

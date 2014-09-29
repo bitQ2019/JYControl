@@ -41,7 +41,7 @@
 {
     JYEDataStore *dataStore  =  [JYEDataStore shareInstance];
     
-    self.netSegmentedControl.selectedSegmentIndex = 0;
+    self.netSegmentedControl.selectedSegmentIndex = 1;
     _address.text = dataStore.serverAddress;
     _port.text = [dataStore.serverPort stringValue];
     _addressCode.text = dataStore.serverCode;
@@ -76,6 +76,29 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (IBAction)tabValueChanged:(UISegmentedControl *)sender {
+    
+    NSLog(@"%ld",(long)sender.selectedSegmentIndex);
+    
+    
+    if (sender.selectedSegmentIndex) {
+        
+        _address.text =  [JYEDataStore shareInstance].serverAddress;
+        
+        _port.text = [[JYEDataStore shareInstance].serverPort stringValue];
+        
+    }
+    else
+    {
+        _address.text = kDefaultServer;
+        _port.text = kDefaultPort;
+        
+    }
+    
+    
+    
+}
 
 - (IBAction)textFieldEndEdit:(UITextField *)sender {
     
@@ -143,6 +166,9 @@
     if (![JYEUtil isValidatIPAndPort:_address.text serverPort:_port.text]) {
         
         // 输入错误，连接到default;
+        
+        [[[UIAlertView alloc] initWithTitle:@"错误" message:@"IP或者端口错误" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil] show];
+        
         [dataStore setDefaultValue];
         
      
@@ -190,5 +216,16 @@
 -(void)receiveConnectNotification:(NSNotification *)notification
 {
     NSLog(@"%@,%@",NSStringFromClass([self class]),notification.userInfo);
+    
+    if ([[notification.userInfo valueForKey:@"connect"] unsignedIntegerValue]) {
+        
+        _wifi.highlighted = YES;
+        
+    }
+    else
+    {
+        _wifi.highlighted = NO;
+    }
+
 }
 @end

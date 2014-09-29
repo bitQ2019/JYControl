@@ -224,6 +224,16 @@
 -(void)receiveConnectNotification:(NSNotification *)notification
 {
      NSLog(@"%@,%@",NSStringFromClass([self class]),notification.userInfo);
+    
+    if ([[notification.userInfo valueForKey:@"connect"] unsignedIntegerValue]) {
+        
+        _wifi.highlighted = YES;
+    }
+    else
+    {
+        _wifi.highlighted = NO;
+    }
+
 
 }
 

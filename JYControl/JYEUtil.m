@@ -84,7 +84,7 @@
 }
 +(void)showConnectServerSuccess
 {
-    [JYEUtil showAlertWithTitle:@"" message:@"连接成功" inViewWithButton:@"OK"];
+//    [JYEUtil showAlertWithTitle:@"" message:@"连接成功" inViewWithButton:@"OK"];
     
     [[NSNotificationCenter defaultCenter] postNotificationName:kConnectNotificaton object:nil userInfo:@{@"Connect":@1}];
     
@@ -95,11 +95,11 @@
 {
     
     
-    UIViewController *controller = [JYEUtil getCurrentRootViewController];
-    
-    [controller.view showNotification:@"连接失败" WithStyle:hudStyleFailed];
-    
-    [JYEUtil showAlertWithTitle:@"错误" message:@"连接服务器失败" inViewWithButton:@"OK"];
+//    UIViewController *controller = [JYEUtil getCurrentRootViewController];
+//    
+//    [controller.view showNotification:@"连接失败" WithStyle:hudStyleFailed];
+//    
+//    [JYEUtil showAlertWithTitle:@"错误" message:@"连接服务器失败" inViewWithButton:@"OK"];
     
       [[NSNotificationCenter defaultCenter] postNotificationName:kConnectNotificaton object:nil userInfo:@{@"Connect":@0}];
 }
@@ -184,7 +184,7 @@
          [retMessage appendString:@"SAJ"];
     }
     
-    [retMessage appendString:[NSString stringWithFormat:@":%d-:%@-:%@-:CRL",value,[JYEDataStore shareInstance].serverCode,message]];
+    [retMessage appendString:[NSString stringWithFormat:@":%ld-:%@-:%@-:CRL",(long)value,[JYEDataStore shareInstance].serverCode,message]];
     
     
     return [retMessage copy];

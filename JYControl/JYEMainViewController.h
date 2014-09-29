@@ -10,5 +10,6 @@
 
 @interface JYEMainViewController : UIViewController
 - (IBAction)buttonPressed:(id)sender;
+@property (strong, nonatomic) IBOutlet UIImageView *wifi;
 
 @end

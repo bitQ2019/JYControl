@@ -45,7 +45,7 @@
 
 +(void)sendMessageWithType:(NSUInteger)type valueNow:(float)value valueOri:(NSUInteger *)oriValue;
 
-+(void)saveSliderValueWithColor:(NSUInteger) colorValue light:(NSUInteger) lightValue temprature:(NSUInteger)tempratureValue
++(void)saveSliderValueWithColor:(NSUInteger) colorValue light:(NSUInteger) lightValue temprature:(NSUInteger)tempratureValue;
 
 
 @end

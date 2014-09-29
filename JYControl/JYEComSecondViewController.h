@@ -10,6 +10,7 @@
 
 @interface JYEComSecondViewController : UIViewController
 
+@property (strong, nonatomic) IBOutlet UIImageView *wifi;
 
 - (IBAction)buttonPressed:(id)sender;
 - (IBAction)closeView:(id)sender;
