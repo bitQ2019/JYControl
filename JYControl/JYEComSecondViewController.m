@@ -7,6 +7,8 @@
 //
 
 #import "JYEComSecondViewController.h"
+
+
 @interface JYEComSecondViewController ()
 {
     NSUInteger colorValue;
@@ -92,44 +94,20 @@
   
     if (sender.tag == 100 ) {
         
-        [self sendMessageWithType:0 valueNow:sender.value valueOri:&colorValue];
+        [JYEUtil sendMessageWithType:0 valueNow:sender.value valueOri:&colorValue];
         
     }
     else
     {
-        [self sendMessageWithType:1 valueNow:sender.value valueOri:&lightValue];
+        [JYEUtil sendMessageWithType:1 valueNow:sender.value valueOri:&lightValue];
     }
     
     
     
-    [self saveSliderValue];
+    [JYEUtil saveSliderValueWithColor:colorValue light:lightValue temprature:-1];
     
 }
 
--(void)saveSliderValue
-{
-    [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithInteger:colorValue] forKey:@"ColorValue"];
-    [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithInteger:lightValue] forKey:@"LightValue"];
-    [[NSUserDefaults standardUserDefaults] synchronize];
-}
 
--(void)sendMessageWithType:(NSUInteger)type valueNow:(float)value valueOri:(NSUInteger *)oriValue
-{
-    float  f = value - *oriValue;
-    
-    if (f> 3|| f < -3) {
-        
-        
-        
-        NSString * message = [JYEUtil formControlMessageWithSliderValue:value SendMessage:@"" Type:type];
-        
-        [[JYECommandSender shareSender] sendMessage:message];
-        
-           *oriValue = value;
-        
-    }
-    
- 
 
-}
 @end

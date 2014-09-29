@@ -171,13 +171,17 @@
 {
     NSMutableString *retMessage = [[NSMutableString alloc] init];
     
-    if (type) {
+    if (type == 1) {
         
         [retMessage appendString:@"SAF"];
     }
-    else
+    else if(type == 0)
     {
         [retMessage appendString:@"SAG"];
+    }
+    else
+    {
+         [retMessage appendString:@"SAJ"];
     }
     
     [retMessage appendString:[NSString stringWithFormat:@":%d-:%@-:%@-:CRL",value,[JYEDataStore shareInstance].serverCode,message]];
@@ -185,6 +189,42 @@
     
     return [retMessage copy];
     
+}
+
+
++(void)sendMessageWithType:(NSUInteger)type valueNow:(float)value valueOri:(NSUInteger *)oriValue
+{
+    float  f = value - *oriValue;
+    
+    if (f> 3|| f < -3) {
+        
+        
+        
+        NSString * message = [JYEUtil formControlMessageWithSliderValue:value SendMessage:@"" Type:type];
+        
+        [[JYECommandSender shareSender] sendMessage:message];
+        
+        *oriValue = value;
+        
+    }
+    
+    
+    
+}
+
++(void)saveSliderValueWithColor:(NSUInteger) colorValue light:(NSUInteger) lightValue temprature:(NSUInteger)tempratureValue
+{
+  
+    [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithInteger:colorValue] forKey:@"ColorValue"];
+    [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithInteger:lightValue] forKey:@"LightValue"];
+    
+    if (tempratureValue > -1) {
+        
+        [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithInteger:tempratureValue] forKey:@"TempratureValue"];
+
+    }
+    
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 @end

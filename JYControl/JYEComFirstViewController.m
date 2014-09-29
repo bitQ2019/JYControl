@@ -12,6 +12,14 @@
 {
     NSUInteger _buttonTag;
     NSTimer *_longPressEventTimer;
+    
+    
+    //
+    
+    NSUInteger  colorValue;
+    NSUInteger  lightValue;
+    NSUInteger  temperatureValue;
+    
 
 }
 - (IBAction)buttonTouchCancel:(id)sender;
@@ -48,7 +56,40 @@
     
     _colorSlider.transform = trans;
     
+    
+    
+    // 滑块
+    _circleSlider.sliderStyle = UICircularSliderStyleCircle;
+    
+    _circleSlider.thumbTintColor = [UIColor whiteColor];
+    
+    _circleSlider.minimumValue = 0;
+    
+    _circleSlider.maximumValue = 255;
+//    
+//    [_circleSlider addTarget:self action:@selector(updateProgress:) forControlEvents:UIControlEventValueChanged];
+    
+    
+    
+    
+    
+    if ([[NSUserDefaults standardUserDefaults] integerForKey:@"ColorValue"]) {
+        
+        colorValue = [[NSUserDefaults standardUserDefaults] integerForKey:@"ColorValue"];
+        lightValue = [[NSUserDefaults standardUserDefaults] integerForKey:@"LightValue"];
+        
+        temperatureValue = [[NSUserDefaults standardUserDefaults] integerForKey:@"TemperatureValue"];
+        
+    }
+    else
+    {
+        lightValue = 0;
+        colorValue = 0;
+        temperatureValue = 0;
+    }
+
 //
+
 //    _colorSlider.transform = trans;
 //    
 //    UISlider *slider = [[UISlider alloc] initWithFrame:CGRectMake(self.view.frame.size.width/2, self.view.frame.size.height/2, 20, 200)];
@@ -113,6 +154,37 @@
 - (IBAction)closeView:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+- (IBAction)sliderValueChange:(UIControl *)sender {
+    
+    
+    NSLog(@"%ld",(long)sender.tag);
+    
+    
+    if (sender.tag == 100 ) {
+        
+        JYESlider * slider = (JYESlider *)sender;
+        
+        [JYEUtil sendMessageWithType:0 valueNow:slider.value valueOri:&colorValue];
+        
+    }
+    else if(sender.tag == 101)
+    {
+        JYESlider * slider = (JYESlider *)sender;
+        [JYEUtil sendMessageWithType:1 valueNow:slider.value valueOri:&lightValue];
+    }
+    
+    else if(sender.tag == 102)
+    {
+        UICircularSlider * slider = (UICircularSlider *)sender;
+        
+        [JYEUtil sendMessageWithType:2 valueNow:slider.value valueOri:&temperatureValue];
+    }
+    
+    
+    [JYEUtil saveSliderValueWithColor:colorValue light:lightValue temprature:-1];
+    
+}
+
 - (IBAction)longPressButton:(UIButton *)sender {
     
    

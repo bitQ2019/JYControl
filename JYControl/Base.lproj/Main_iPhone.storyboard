@@ -249,12 +249,15 @@
                                     <action selector="closeView:" destination="fSO-36-hnW" eventType="touchUpInside" id="PmO-WP-saH"/>
                                 </connections>
                             </button>
-                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="tUD-QV-B31" customClass="JYESlider">
+                            <slider opaque="NO" tag="100" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="255" translatesAutoresizingMaskIntoConstraints="NO" id="tUD-QV-B31" customClass="JYESlider">
                                 <rect key="frame" x="6" y="199" width="118" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="sliderValueChange:" destination="fSO-36-hnW" eventType="valueChanged" id="vAV-94-J11"/>
+                                </connections>
                             </slider>
-                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="ln0-bj-SVT" customClass="JYESlider">
+                            <slider opaque="NO" tag="101" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="255" translatesAutoresizingMaskIntoConstraints="NO" id="ln0-bj-SVT" customClass="JYESlider">
                                 <rect key="frame" x="184" y="199" width="118" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <userDefinedRuntimeAttributes>
@@ -262,6 +265,9 @@
                                         <real key="value" value="-1.571"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="sliderValueChange:" destination="fSO-36-hnW" eventType="valueChanged" id="uzt-nn-FRY"/>
+                                </connections>
                             </slider>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Bright" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jeb-Wa-rkW">
                                 <rect key="frame" x="42" y="277" width="47" height="21"/>
@@ -277,21 +283,24 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view tag="102" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CcD-KL-axO" customClass="UICircularSlider">
+                                <rect key="frame" x="80" y="141" width="147" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <action selector="sliderValueChange:" destination="fSO-36-hnW" eventType="valueChanged" id="Zll-mR-B1b"/>
+                                </connections>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.37823523018238264" green="0.45802743408176133" blue="0.55014145374298096" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <connections>
+                        <outlet property="circleSlider" destination="CcD-KL-axO" id="wxz-sU-Ir5"/>
                         <outlet property="colorSlider" destination="tUD-QV-B31" id="BPu-oa-bIF"/>
                         <outlet property="lightSlider" destination="ln0-bj-SVT" id="Slk-wF-d37"/>
-                        <outlet property="longPressGesture" destination="jRR-an-eLA" id="rjB-4Z-ZJJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SbV-XW-AEe" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="jRR-an-eLA">
-                    <connections>
-                        <action selector="longPressButton:" destination="fSO-36-hnW" id="5d0-62-V0T"/>
-                    </connections>
-                </pongPressGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="833" y="768"/>
         </scene>

@@ -7,20 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UICircularSlider.h"
 #import "JYESlider.h"
 @interface JYEComFirstViewController : UIViewController
 
 - (IBAction)buttonPressed:(id)sender;
 
 - (IBAction)closeView:(id)sender;
-@property (strong, nonatomic) IBOutlet UILabel *wifiLable;
 
-@property (strong, nonatomic) IBOutlet UIButton *colorMinus;
-@property (strong, nonatomic) IBOutlet UIButton *colorPlus;
-@property (strong, nonatomic) IBOutlet UIButton *lightMinus;
 @property (strong, nonatomic) IBOutlet JYESlider *lightSlider;
-@property (strong, nonatomic) IBOutlet UIButton *lightPlus;
+
 @property (strong, nonatomic) IBOutlet JYESlider *colorSlider;
 @property (strong, nonatomic) IBOutlet UILongPressGestureRecognizer *longPressGesture;
+@property (strong, nonatomic) IBOutlet UICircularSlider *circleSlider;
+- (IBAction)sliderValueChange:(id)sender;
 - (IBAction)longPressButton:(id)sender;
 @end
