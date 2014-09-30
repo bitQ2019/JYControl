@@ -30,6 +30,10 @@
         
     }
     
+    if ([JYECommandSender shareSender].isConnected == connected) {
+        
+        _wifi.highlighted = YES;
+    }
 //    self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"B-Background"]];
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveConnectNotification:) name:kConnectNotificaton object:nil];

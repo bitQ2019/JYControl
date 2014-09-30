@@ -56,7 +56,9 @@
     
     _colorSlider.transform = trans;
     
+    _circleSlider.minimumTrackTintColor = [UIColor clearColor];
     
+    _circleSlider.maximumTrackTintColor = [UIColor clearColor];
     
     // 滑块
     _circleSlider.sliderStyle = UICircularSliderStyleCircle;
@@ -68,7 +70,11 @@
     _circleSlider.maximumValue = 255;
 //    
 //    [_circleSlider addTarget:self action:@selector(updateProgress:) forControlEvents:UIControlEventValueChanged];
-    
+    if ([JYECommandSender shareSender].isConnected == connected) {
+        
+        _wifi.highlighted = YES;
+    }
+
     
     
     

@@ -55,7 +55,7 @@
                                     <action selector="buttonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="R28-Lk-o0L"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="diswifi" highlightedImage="Wifi-A" translatesAutoresizingMaskIntoConstraints="NO" id="54W-Yf-tGO">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="diswifi" highlightedImage="Wifi-A" translatesAutoresizingMaskIntoConstraints="NO" id="54W-Yf-tGO">
                                 <rect key="frame" x="26" y="21" width="90" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -236,7 +236,7 @@
                                     <action selector="buttonTouchCancel:" destination="fSO-36-hnW" eventType="touchUpInside" id="gDm-Kz-5lH"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="diswifi" highlightedImage="Wifi-A" translatesAutoresizingMaskIntoConstraints="NO" id="Ujr-F7-Soh">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="diswifi" highlightedImage="Wifi-A" translatesAutoresizingMaskIntoConstraints="NO" id="Ujr-F7-Soh">
                                 <rect key="frame" x="20" y="20" width="90" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -251,7 +251,7 @@
                                 </connections>
                             </button>
                             <slider opaque="NO" tag="100" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="255" translatesAutoresizingMaskIntoConstraints="NO" id="tUD-QV-B31" customClass="JYESlider">
-                                <rect key="frame" x="6" y="199" width="118" height="31"/>
+                                <rect key="frame" x="-24" y="199" width="118" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
@@ -259,7 +259,7 @@
                                 </connections>
                             </slider>
                             <slider opaque="NO" tag="101" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="255" translatesAutoresizingMaskIntoConstraints="NO" id="ln0-bj-SVT" customClass="JYESlider">
-                                <rect key="frame" x="184" y="199" width="118" height="31"/>
+                                <rect key="frame" x="211" y="199" width="118" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.transform.rotation.z">
@@ -271,21 +271,25 @@
                                 </connections>
                             </slider>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Bright" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jeb-Wa-rkW">
-                                <rect key="frame" x="42" y="277" width="47" height="21"/>
+                                <rect key="frame" x="20" y="277" width="47" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Temperature" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Zy-hU-o4s">
-                                <rect key="frame" x="213" y="277" width="96" height="21"/>
+                                <rect key="frame" x="228" y="277" width="96" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="CircleSlider" translatesAutoresizingMaskIntoConstraints="NO" id="5Bv-gs-naF">
+                                <rect key="frame" x="100" y="170" width="105" height="105"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
                             <view tag="102" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CcD-KL-axO" customClass="UICircularSlider">
-                                <rect key="frame" x="80" y="141" width="147" height="128"/>
+                                <rect key="frame" x="80" y="160" width="147" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <connections>
@@ -432,7 +436,7 @@
                                     <action selector="closeView:" destination="8aV-55-vx6" eventType="touchUpInside" id="1pX-U7-g5E"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="diswifi" highlightedImage="Wifi-A" translatesAutoresizingMaskIntoConstraints="NO" id="l8k-4I-T3H">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="diswifi" highlightedImage="Wifi-A" translatesAutoresizingMaskIntoConstraints="NO" id="l8k-4I-T3H">
                                 <rect key="frame" x="20" y="20" width="90" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -684,7 +688,7 @@
                                     <action selector="save:" destination="ohj-Mm-Xri" eventType="touchUpInside" id="3Kk-L1-c5m"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="diswifi" highlightedImage="Wifi-A" translatesAutoresizingMaskIntoConstraints="NO" id="do4-mc-9Uj">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="diswifi" highlightedImage="Wifi-A" translatesAutoresizingMaskIntoConstraints="NO" id="do4-mc-9Uj">
                                 <rect key="frame" x="20" y="20" width="90" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -732,6 +736,7 @@
         <image name="Back" width="49" height="35"/>
         <image name="ButtonI-A" width="79" height="106"/>
         <image name="ButtonO-A" width="79" height="87"/>
+        <image name="CircleSlider" width="103" height="102"/>
         <image name="PacketSwitcher" width="26" height="26"/>
         <image name="Save" width="131" height="46"/>
         <image name="Selector1" width="282" height="424"/>

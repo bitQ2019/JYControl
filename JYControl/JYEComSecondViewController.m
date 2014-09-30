@@ -44,6 +44,12 @@
         lightValue = 0;
         colorValue = 0;
     }
+    
+    if ([JYECommandSender shareSender].isConnected == connected) {
+        
+        _wifi.highlighted = YES;
+    }
+
     // Do any additional setup after loading the view.
 }
 

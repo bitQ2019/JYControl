@@ -259,7 +259,7 @@
     
     _isConnected = disConnected;
     
-
+    [JYEUtil alertConnectServerFail];
     [self connectToDefaultServer];
     
     

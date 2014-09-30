@@ -54,6 +54,12 @@
 //    }
 //    
     [[JYECommandSender shareSender] disConnectWithType:defaultServer];
+    
+    if ([JYECommandSender shareSender].isConnected == connected) {
+        
+        _wifi.highlighted = YES;
+    }
+
 //
 //    [[JYECommandSender shareSender] connectToServer:@"192.168.1.10" port:8899];
     
@@ -84,6 +90,10 @@
     
     if (sender.selectedSegmentIndex) {
         
+        
+        _address.hidden = NO;
+        _port.hidden = NO;
+        
         _address.text =  [JYEDataStore shareInstance].serverAddress;
         
         _port.text = [[JYEDataStore shareInstance].serverPort stringValue];
@@ -92,8 +102,12 @@
     else
     {
         _address.text = kDefaultServer;
+        
         _port.text = kDefaultPort;
         
+        _address.hidden = YES;
+        
+        _port.hidden = YES;
     }
     
     
@@ -138,9 +152,21 @@
 
 - (IBAction)closeView:(id)sender {
     
+    [self save:nil];
+    
+    
+    if (_netSegmentedControl.selectedSegmentIndex) {
+        
+        [[JYECommandSender shareSender] disConnectWithType:customServer];
+    }
+    else
+    {
+        // 不断开
+    }
+    
     [self dismissViewControllerAnimated:YES completion:^()
      {
-         [[JYECommandSender shareSender] disConnectWithType:customServer];
+         
      }];
 }
 
@@ -177,20 +203,32 @@
     else
     {
         // 正确
-        dataStore.serverCode = _addressCode.text;
-        dataStore.serverAddress = _address.text;
-        dataStore.passwordString = _password.text;
-        dataStore.ssidString = _SSID.text;
+        if (_netSegmentedControl.selectedSegmentIndex) {
+            
+            dataStore.serverCode = _addressCode.text;
+            dataStore.serverAddress = _address.text;
+            dataStore.passwordString = _password.text;
+            dataStore.ssidString = _SSID.text;
+            
+            dataStore.serverPort = [NSNumber numberWithInteger:[_port.text integerValue]];
+            
+            
+            [dataStore save];
+            
+            
+            
+        }
+        else
+        {
+            // 啥也不做？？
+            
+        }
         
-        dataStore.serverPort = [NSNumber numberWithInteger:[_port.text integerValue]];
         
-   
+        [[JYECommandSender shareSender] sendMessage:[JYEUtil formConnectMessage]];
+        
     }
-    
-    [dataStore save];
-    
-    
-    [[JYECommandSender shareSender] sendMessage:[JYEUtil formConnectMessage]];
+
     
     
     

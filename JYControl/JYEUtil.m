@@ -86,7 +86,7 @@
 {
 //    [JYEUtil showAlertWithTitle:@"" message:@"连接成功" inViewWithButton:@"OK"];
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:kConnectNotificaton object:nil userInfo:@{@"Connect":@1}];
+    [[NSNotificationCenter defaultCenter] postNotificationName:kConnectNotificaton object:nil userInfo:@{@"connect":@1}];
     
 }
 
@@ -101,7 +101,7 @@
 //    
 //    [JYEUtil showAlertWithTitle:@"错误" message:@"连接服务器失败" inViewWithButton:@"OK"];
     
-      [[NSNotificationCenter defaultCenter] postNotificationName:kConnectNotificaton object:nil userInfo:@{@"Connect":@0}];
+      [[NSNotificationCenter defaultCenter] postNotificationName:kConnectNotificaton object:nil userInfo:@{@"connect":@0}];
 }
 
 
