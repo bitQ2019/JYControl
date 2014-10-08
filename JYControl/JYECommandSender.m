@@ -227,11 +227,11 @@
     
     [JYEUtil showConnectServerSuccess];
     
-    //    [sock readDataWithTimeout:1 tag:0];
+//      [sock readDataWithTimeout:1 tag:0];
 }
 - (void)onSocket:(AsyncSocket *)sock didWriteDataWithTag:(long)tag
 {
-    //    [sock readDataWithTimeout: -1 tag: 0];
+      [sock readDataWithTimeout: -1 tag: 0];
     
 }
 
@@ -241,7 +241,13 @@
     
     NSLog(@"%@",aStr);
     
-    //    [sock readDataWithTimeout:-1 tag:0];
+    if ([aStr hasPrefix:@":END"]) {
+        
+        [JYEUtil parseReturnString:aStr];
+        
+    }
+    
+//      [sock readDataWithTimeout:-1 tag:0];
 }
 
 - (void)onSocket:(AsyncSocket *)sock didSecure:(BOOL)flag

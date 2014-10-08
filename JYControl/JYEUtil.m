@@ -229,4 +229,30 @@
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
++(void)parseReturnString:(NSString *)parseString
+{
+    
+    NSRange rang = [parseString rangeOfString:@"DISP:"];
+    
+    rang.location = rang.location +rang.length;
+    rang.length = 3;
+    
+    NSMutableArray *numArray = [[NSMutableArray alloc] init];
+    
+    for (int i = 0; i<4 ; i++) {
+        
+        NSString *numString = [parseString substringWithRange:rang];
+        NSInteger num = [numString integerValue];
+        
+        [numArray addObject:[NSNumber numberWithInteger:num]];
+        
+        rang.location = rang.location + 4;
+        
+    }
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:kReturnStringNotification object:self userInfo:numArray];
+    
+    
+}
+
 @end

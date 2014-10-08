@@ -21,6 +21,10 @@
 @property (strong, nonatomic) IBOutlet JYESlider *colorSlider;
 @property (strong, nonatomic) IBOutlet UILongPressGestureRecognizer *longPressGesture;
 @property (strong, nonatomic) IBOutlet UICircularSlider *circleSlider;
+@property (strong, nonatomic) IBOutlet UILabel *num4;
 - (IBAction)sliderValueChange:(id)sender;
+@property (strong, nonatomic) IBOutlet UILabel *num3;
 - (IBAction)longPressButton:(id)sender;
+@property (strong, nonatomic) IBOutlet UILabel *num2;
+@property (strong, nonatomic) IBOutlet UILabel *num1;
 @end

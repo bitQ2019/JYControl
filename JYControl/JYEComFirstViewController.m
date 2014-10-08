@@ -39,10 +39,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [self disAppearReturnLabel:nil];
    
     _longPressGesture.minimumPressDuration = 1000;
     
-        CGAffineTransform trans = CGAffineTransformMakeRotation(M_PI * -0.5);
+    CGAffineTransform trans = CGAffineTransformMakeRotation(M_PI * -0.5);
     
     [_lightSlider removeConstraints:_lightSlider.constraints];
     
@@ -110,6 +112,9 @@
 //    _lightSlider.transform = trans;
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveConnectNotification:) name:kConnectNotificaton object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showReturnString:) name:kReturnStringNotification object:nil];
+    
     // Do any additional setup after loading the view.
 }
 
@@ -241,6 +246,41 @@
     }
 
 
+}
+-(void)showReturnString:(NSNotification *)notification
+{
+    NSArray *numArray = notification.userInfo;
+    
+    _num1.text = [numArray[1] stringValue];
+    _num2.text = [numArray[2] stringValue];
+    _num3.text = [numArray[3] stringValue];
+    _num4.text = [numArray[4] stringValue];
+    
+    [UIView animateWithDuration:0.5 animations:^(){
+        
+        [_num1 setHidden:NO];
+        [_num2 setHidden:NO];
+        [_num3 setHidden:NO];
+        [_num4 setHidden:NO];
+        
+    }];
+    
+    
+    
+    
+    [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(disAppearReturnLabel:) userInfo:nil repeats:NO];
+}
+
+-(void)disAppearReturnLabel:(id)sender
+{
+    [UIView animateWithDuration:0.5 animations:^(){
+        
+        [_num1 setHidden:YES];
+        [_num2 setHidden:YES];
+        [_num3 setHidden:YES];
+        [_num4 setHidden:YES];
+        
+    }];
 }
 
 @end

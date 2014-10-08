@@ -13,6 +13,10 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    NSString *numString = @"010";
+    NSInteger num = [numString integerValue];
+    
+    NSLog(@"%ld",(long)num);
     return YES;
 }
 							

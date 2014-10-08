@@ -18,6 +18,11 @@
 - (IBAction)sendValueChangeCommand:(id)sender;
 
 @property (strong, nonatomic) IBOutlet UISlider *lightSlider;
+@property (strong, nonatomic) IBOutlet UILabel *num3;
+@property (strong, nonatomic) IBOutlet UILabel *num4;
 
+@property (strong, nonatomic) IBOutlet UILabel *num2;
 @property (strong, nonatomic) IBOutlet UISlider *colorSlider;
+@property (strong, nonatomic) IBOutlet UILabel *num1;
+@property (strong,nonatomic) IBOutlet NSArray *array;
 @end
