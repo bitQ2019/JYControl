@@ -53,6 +53,8 @@
     NSDictionary *option = @{@"firstTime": @"YES"};
     [[NSUserDefaults standardUserDefaults] registerDefaults:option];
     
+    
+    
     NSString *isString = [[NSUserDefaults standardUserDefaults] valueForKey:@"firstTime"];
     
     if ([isString isEqualToString:@"YES"]) {

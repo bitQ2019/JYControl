@@ -59,7 +59,22 @@
         
         _wifi.highlighted = YES;
     }
-
+    
+    
+    
+    if([[NSUserDefaults standardUserDefaults] boolForKey:kDefaultTap]){
+        
+        [_netSegmentedControl setSelectedSegmentIndex:1];
+        
+    }
+    else
+    {
+        
+        [_netSegmentedControl setSelectedSegmentIndex:0];
+        
+    }
+    
+    [self tabValueChanged:_netSegmentedControl];
 //
 //    [[JYECommandSender shareSender] connectToServer:@"192.168.1.10" port:8899];
     
@@ -213,7 +228,7 @@
             dataStore.serverPort = [NSNumber numberWithInteger:[_port.text integerValue]];
             
             
-            [dataStore save];
+            [[NSUserDefaults standardUserDefaults] setBool:YES forKey:kDefaultTap];
             
             
             
@@ -221,9 +236,12 @@
         else
         {
             // 啥也不做？？
+               [[NSUserDefaults standardUserDefaults] setBool:NO forKey:kDefaultTap];
             
         }
         
+        [dataStore save];
+
         
         [[JYECommandSender shareSender] sendMessage:[JYEUtil formConnectMessage]];
         
