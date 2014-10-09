@@ -31,6 +31,8 @@
 {
     [super viewDidLoad];
     
+    [self disAppearReturnLabel:nil];
+    
        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveConnectNotification:) name:kConnectNotificaton object:nil];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showReturnString:) name:kReturnStringNotification object:nil];
@@ -63,7 +65,10 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     // Dispose of any resources that can be recreated.
 }
-
+-(void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 /*
 #pragma mark - Navigation
 
@@ -129,19 +134,24 @@
 }
 -(void)showReturnString:(NSNotification *)notification
 {
+    
+    if (_num1.alpha > 0) {
+        return;
+    }
+    
     NSArray *numArray = notification.userInfo;
     
-    _num1.text = [numArray[1] stringValue];
-    _num2.text = [numArray[2] stringValue];
-    _num3.text = [numArray[3] stringValue];
-    _num4.text = [numArray[4] stringValue];
+    _num1.text = [JYEUtil judgeStringByNum:numArray[0]];
+    _num2.text = [JYEUtil judgeStringByNum:numArray[1]];
+    _num3.text = [JYEUtil judgeStringByNum:numArray[2]];
+    _num4.text = [JYEUtil judgeStringByNum:numArray[3]];
     
     [UIView animateWithDuration:0.5 animations:^(){
         
-        [_num1 setHidden:NO];
-        [_num2 setHidden:NO];
-        [_num3 setHidden:NO];
-        [_num4 setHidden:NO];
+        [_num1 setAlpha:1];
+        [_num2 setAlpha:1];
+        [_num3 setAlpha:1];
+        [_num4 setAlpha:1];
         
     }];
 
@@ -155,10 +165,10 @@
 {
     [UIView animateWithDuration:0.5 animations:^(){
         
-        [_num1 setHidden:YES];
-        [_num2 setHidden:YES];
-        [_num3 setHidden:YES];
-        [_num4 setHidden:YES];
+        [_num1 setAlpha:0];
+        [_num2 setAlpha:0];
+        [_num3 setAlpha:0];
+        [_num4 setAlpha:0];
         
     }];
 }

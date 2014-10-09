@@ -11,7 +11,7 @@
 #import "AsyncSocket.h"
 #import "MBProgressHUD.h"
 #import "UIView+Extend.h"
-
+#import "NSString+MQ.h"
 
 
 
@@ -238,10 +238,11 @@
 - (void)onSocket:(AsyncSocket *)sock didReadData:(NSData *)data withTag:(long)tag {
     
     NSString* aStr = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
-    
+//    aStr = @"END";
+    [aStr deleteSpace];
     NSLog(@"%@",aStr);
     
-    if ([aStr hasPrefix:@":END"]) {
+    if ([aStr containsString:@"END"]) {
         
         [JYEUtil parseReturnString:aStr];
         

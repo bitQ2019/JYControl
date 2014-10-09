@@ -10,7 +10,7 @@
 
 //UIViewController * rootViewController;
 #define kConnectNotificaton @"ConnectNotification"
-#define kDefaultServer @"192.168.1.112"
+#define kDefaultServer @"192.168.1.10"
 #define kDefaultPort @"8899"
 #define kDefaultTap  @"tabValue"
 #define kReturnStringNotification @"returnStringNotification"
@@ -48,4 +48,6 @@
 +(void)saveSliderValueWithColor:(NSUInteger) colorValue light:(NSUInteger) lightValue temprature:(NSUInteger)tempratureValue;
 
 +(void)parseReturnString:(NSString *)parseString;
+
++(NSString *)judgeStringByNum:(NSNumber *)num;
 @end

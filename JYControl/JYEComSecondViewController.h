@@ -24,5 +24,5 @@
 @property (strong, nonatomic) IBOutlet UILabel *num2;
 @property (strong, nonatomic) IBOutlet UISlider *colorSlider;
 @property (strong, nonatomic) IBOutlet UILabel *num1;
-@property (strong,nonatomic) IBOutlet NSArray *array;
+@property (strong,nonatomic)  IBOutletCollection(UILabel) NSArray *labelArray;
 @end

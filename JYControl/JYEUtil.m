@@ -255,4 +255,28 @@
     
 }
 
++(NSString *)judgeStringByNum:(NSNumber *)num
+{
+     int   intNum  =  [num intValue];
+    NSString * returnString = @"ON";
+    
+    if (intNum == 0) {
+        
+        
+        
+    }
+    else if(intNum == 100)
+    {
+        returnString = @"OFF";
+    }
+    else
+    {
+        returnString = @"ON-";
+        returnString = [returnString stringByAppendingString:[num stringValue]];
+    }
+    
+    return returnString;
+}
+
+
 @end
